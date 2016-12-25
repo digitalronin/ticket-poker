@@ -1,0 +1,23 @@
+<h2>Show team</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @team.name %>
+  </li>
+
+  <li>
+    <strong>Points:</strong>
+    <%= @team.points %>
+  </li>
+
+  <li>
+    <strong>Coders:</strong>
+    <%= @team.coders %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: team_path(@conn, :edit, @team) %>
+<%= link "Back", to: team_path(@conn, :index) %>
