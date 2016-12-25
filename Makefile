@@ -4,4 +4,4 @@ db-recreate:
 	mix ecto.migrate
 
 db-connect:
-	psql -U postgres planning_poker_dev
+	pgcli -U postgres planning_poker_dev
