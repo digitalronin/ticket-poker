@@ -1,0 +1,6 @@
+<h2>New ticket</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: ticket_path(@conn, :create) %>
+
+<%= link "Back", to: ticket_path(@conn, :index) %>
