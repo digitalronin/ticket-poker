@@ -15,8 +15,13 @@ defmodule PlanningPoker.Team do
 
   def pre_process_points(str) do
     str
+    |> String.replace(~r/[^0-9\s]/, "")
+    |> String.replace(~r/\s+/, " ")
+    |> String.trim
     |> String.split(" ")
     |> Enum.map(&String.to_integer/1)
+    |> Enum.sort
+    |> Enum.uniq
   end
 
   def pre_process_coders(str) when is_binary(str) do
