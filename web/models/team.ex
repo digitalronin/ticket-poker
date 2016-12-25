@@ -10,6 +10,23 @@ defmodule PlanningPoker.Team do
     timestamps()
   end
 
+  def pre_process_points(nil), do: []
+  def pre_process_points(""), do: []
+
+  def pre_process_points(str) do
+    str
+    |> String.split(" ")
+    |> Enum.map(&String.to_integer/1)
+  end
+
+  def pre_process_coders(str) when is_binary(str) do
+    str
+    |> String.split("\n")
+  end
+
+  def pre_process_coders(arr), do: arr
+
+
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """

@@ -68,25 +68,8 @@ defmodule PlanningPoker.TeamController do
   defp pre_process(team_params) do
     %{
       "name"   => team_params["name"],
-      "points" => pre_process_points(team_params["points_string"]),
-      "coders" => pre_process_coders(team_params["coders"])
+      "points" => Team.pre_process_points(team_params["points_string"]),
+      "coders" => Team.pre_process_coders(team_params["coders"])
     }
   end
-
-  defp pre_process_points(nil), do: []
-  defp pre_process_points(""), do: []
-
-  defp pre_process_points(str) do
-    str
-    |> String.split(" ")
-    |> Enum.map(&String.to_integer/1)
-  end
-
-  defp pre_process_coders(str) when is_binary(str) do
-    str
-    |> String.split("\n")
-  end
-
-  defp pre_process_coders(arr), do: arr
-
 end
