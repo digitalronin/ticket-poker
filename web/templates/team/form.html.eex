@@ -19,7 +19,7 @@
 
   <div class="form-group">
     <%= label f, :coders, class: "control-label" %>
-    <%= textarea f, :coders, class: "form-control" %>
+    <textarea class="form-control" id="team_coders" name="team[coders]"><%= coders_string(@team.coders) %></textarea>
     <%= error_tag f, :coders %>
   </div>
 

@@ -1,6 +1,8 @@
 switch to UUID for teams.id
+switch to UUID for tickets.id
 
 remove team index view
+remove unnecessary ticket views etc.
 
 prevent deleting teams
 
@@ -16,5 +18,3 @@ add funky graphics
 
 deploy
 
-teams:
-  sanitise, trim, uniq & order points and coders

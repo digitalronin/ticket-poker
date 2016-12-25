@@ -10,7 +10,7 @@ defmodule PlanningPoker.TeamController do
 
   def new(conn, _params) do
     changeset = Team.changeset(%Team{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, team: %Team{})
   end
 
   def create(conn, %{"team" => team_params}) do
@@ -23,7 +23,7 @@ defmodule PlanningPoker.TeamController do
         |> put_flash(:info, "Team created successfully.")
         |> redirect(to: team_path(conn, :index))
       {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        render(conn, "new.html", team: %Team{}, changeset: changeset)
     end
   end
 
