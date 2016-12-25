@@ -1,0 +1,20 @@
+switch to UUID for teams.id
+
+remove team index view
+
+prevent deleting teams
+
+add ticket handling
+
+default points to 1 2 3 5 8 13
+
+use websockets so concurrent users see each others' changes
+
+styling
+
+add funky graphics
+
+deploy
+
+teams:
+  sanitise, trim, uniq & order points and coders

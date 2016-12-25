@@ -2,7 +2,8 @@ defmodule PlanningPoker.TeamControllerTest do
   use PlanningPoker.ConnCase
 
   alias PlanningPoker.Team
-  @valid_attrs %{coders: [], name: "some content", points: []}
+  @find_attrs %{coders: [], name: "some content", points: []}
+  @valid_attrs Map.put(@find_attrs, :points_string, "")
   @invalid_attrs %{}
 
   test "lists all entries on index", %{conn: conn} do
@@ -18,7 +19,7 @@ defmodule PlanningPoker.TeamControllerTest do
   test "creates resource and redirects when data is valid", %{conn: conn} do
     conn = post conn, team_path(conn, :create), team: @valid_attrs
     assert redirected_to(conn) == team_path(conn, :index)
-    assert Repo.get_by(Team, @valid_attrs)
+    assert Repo.get_by(Team, @find_attrs)
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
@@ -48,7 +49,7 @@ defmodule PlanningPoker.TeamControllerTest do
     team = Repo.insert! %Team{}
     conn = put conn, team_path(conn, :update, team), team: @valid_attrs
     assert redirected_to(conn) == team_path(conn, :show, team)
-    assert Repo.get_by(Team, @valid_attrs)
+    assert Repo.get_by(Team, @find_attrs)
   end
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
