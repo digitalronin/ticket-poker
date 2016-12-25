@@ -1,7 +1,7 @@
 defmodule PlanningPoker.TeamController do
   use PlanningPoker.Web, :controller
 
-  alias PlanningPoker.Team
+  alias PlanningPoker.{ Team, TeamUpdater }
 
   def index(conn, _params) do
     teams = Repo.all(Team)
@@ -14,10 +14,7 @@ defmodule PlanningPoker.TeamController do
   end
 
   def create(conn, %{"team" => team_params}) do
-    params = pre_process team_params
-    changeset = Team.changeset(%Team{}, params)
-
-    case Repo.insert(changeset) do
+    case TeamUpdater.create(team_params) do
       {:ok, _team} ->
         conn
         |> put_flash(:info, "Team created successfully.")
@@ -40,10 +37,8 @@ defmodule PlanningPoker.TeamController do
 
   def update(conn, %{"id" => id, "team" => team_params}) do
     team = find_team(id)
-    params = pre_process team_params
-    changeset = Team.changeset(team, params)
 
-    case Repo.update(changeset) do
+    case TeamUpdater.update(team, team_params) do
       {:ok, team} ->
         conn
         |> put_flash(:info, "Team updated successfully.")
@@ -65,11 +60,4 @@ defmodule PlanningPoker.TeamController do
 
   defp find_team(id), do: Repo.get!(Team, id)
 
-  defp pre_process(team_params) do
-    %{
-      "name"   => team_params["name"],
-      "points" => Team.pre_process_points(team_params["points_string"]),
-      "coders" => Team.pre_process_coders(team_params["coders"])
-    }
-  end
 end

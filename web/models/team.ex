@@ -6,6 +6,7 @@ defmodule PlanningPoker.Team do
     field :points, {:array, :integer}
     field :points_string, :string, virtual: true
     field :coders, {:array, :string}
+    has_many :tickets, PlanningPoker.Ticket
 
     timestamps()
   end

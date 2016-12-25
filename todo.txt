@@ -1,3 +1,11 @@
+add ticket handling
+- validate ticket urls
+- ticket show page
+- display ticket url after creation
+- add tests
+
+display team URL after creation
+
 switch to UUID for teams.id
 switch to UUID for tickets.id
 
@@ -6,8 +14,6 @@ remove unnecessary ticket views etc.
 
 prevent deleting teams
 
-add ticket handling
-
 default points to 1 2 3 5 8 13
 
 use websockets so concurrent users see each others' changes
@@ -15,6 +21,8 @@ use websockets so concurrent users see each others' changes
 styling
 
 add funky graphics
+
+show ticket body in a separate (i)frame
 
 deploy
 

@@ -24,6 +24,12 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :new_ticket_url, class: "control-label" %>
+    <%= text_input f, :new_ticket_url, class: "form-control" %>
+    <%= error_tag f, :new_ticket_url %>
+  </div>
+
+  <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
