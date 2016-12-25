@@ -31,6 +31,7 @@ defmodule PlanningPoker.Team do
     str
     |> String.split("\n")
     |> Enum.map(&String.trim/1)
+    |> Enum.reject(fn(s) -> s == "" end)
     |> Enum.sort
     |> Enum.uniq
   end

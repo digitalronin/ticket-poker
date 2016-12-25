@@ -33,5 +33,6 @@ defmodule PlanningPoker.TeamTest do
     assert Team.pre_process_coders("aaa\n   bbb   \nccc") == ["aaa", "bbb", "ccc"]
     assert Team.pre_process_coders("bbb\nccc\naaa") == ["aaa", "bbb", "ccc"]
     assert Team.pre_process_coders("aaa\nbbb\nbbb\nccc") == ["aaa", "bbb", "ccc"]
+    assert Team.pre_process_coders("aaa\n\nbbb\nccc") == ["aaa", "bbb", "ccc"]
   end
 end
