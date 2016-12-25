@@ -28,19 +28,18 @@ defmodule PlanningPoker.TeamController do
   end
 
   def show(conn, %{"id" => id}) do
-    team = Repo.get!(Team, id)
-    render(conn, "show.html", team: team)
+    render(conn, "show.html", team: find_team(id))
   end
 
   def edit(conn, %{"id" => id}) do
-    team = Repo.get!(Team, id)
+    team = find_team(id)
     changeset = Team.changeset(team)
 
     render(conn, "edit.html", team: team, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "team" => team_params}) do
-    team = Repo.get!(Team, id)
+    team = find_team(id)
     params = pre_process team_params
     changeset = Team.changeset(team, params)
 
@@ -55,16 +54,16 @@ defmodule PlanningPoker.TeamController do
   end
 
   def delete(conn, %{"id" => id}) do
-    team = Repo.get!(Team, id)
-
     # Here we use delete! (with a bang) because we expect
     # it to always work (and if it does not, it will raise).
-    Repo.delete!(team)
+    Repo.delete!(find_team(id))
 
     conn
     |> put_flash(:info, "Team deleted successfully.")
     |> redirect(to: team_path(conn, :index))
   end
+
+  defp find_team(id), do: Repo.get!(Team, id)
 
   defp pre_process(team_params) do
     %{
