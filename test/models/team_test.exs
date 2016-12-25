@@ -25,4 +25,13 @@ defmodule PlanningPoker.TeamTest do
     assert Team.pre_process_points("2 1 3") == [1, 2, 3]
     assert Team.pre_process_points("1 1 2 3") == [1, 2, 3]
   end
+
+  test "coder list strings" do
+    assert Team.pre_process_coders(nil) == []
+    assert Team.pre_process_coders("") == []
+    assert Team.pre_process_coders("aaa\nbbb\nccc") == ["aaa", "bbb", "ccc"]
+    assert Team.pre_process_coders("aaa\n   bbb   \nccc") == ["aaa", "bbb", "ccc"]
+    assert Team.pre_process_coders("bbb\nccc\naaa") == ["aaa", "bbb", "ccc"]
+    assert Team.pre_process_coders("aaa\nbbb\nbbb\nccc") == ["aaa", "bbb", "ccc"]
+  end
 end

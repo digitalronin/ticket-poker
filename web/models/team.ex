@@ -24,12 +24,18 @@ defmodule PlanningPoker.Team do
     |> Enum.uniq
   end
 
+  def pre_process_coders(nil),  do: []
+  def pre_process_coders(""),   do: []
+
   def pre_process_coders(str) when is_binary(str) do
     str
     |> String.split("\n")
+    |> Enum.map(&String.trim/1)
+    |> Enum.sort
+    |> Enum.uniq
   end
 
-  def pre_process_coders(arr), do: arr
+  def pre_process_coders(arr),  do: arr
 
 
   @doc """
