@@ -1,5 +1,6 @@
 alias PlanningPoker.{
   Team,
+  Ticket,
   Repo
 }
 

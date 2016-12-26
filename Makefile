@@ -1,3 +1,6 @@
+serve:
+	iex -S mix phoenix.server
+
 db-recreate:
 	mix ecto.drop
 	mix ecto.create
