@@ -1,0 +1,6 @@
+<%= case @points do %>
+  <% 0 -> %>
+    <li><%= @coder %>: No estimate supplied</li>
+  <% _ -> %>
+    <li><%= @coder %>: <%= @points %></li>
+<% end %>
