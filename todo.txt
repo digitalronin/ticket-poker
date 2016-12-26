@@ -1,8 +1,9 @@
 add ticket handling
+- add tests
 - validate ticket urls
 - ticket show page
 - display ticket url after creation
-- add tests
+- ticket estimates
 
 display team URL after creation
 

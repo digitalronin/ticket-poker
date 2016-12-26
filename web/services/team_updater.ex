@@ -9,7 +9,6 @@ defmodule PlanningPoker.TeamUpdater do
     case Repo.insert(changeset) do
       {:ok, team} ->
         create_ticket(team, params)
-        {:ok, team}
 
       {:error, changeset} ->
         {:error, changeset}
@@ -21,7 +20,6 @@ defmodule PlanningPoker.TeamUpdater do
     case Repo.update(changeset) do
       {:ok, team} ->
         create_ticket(team, params)
-        {:ok, team}
 
       {:error, changeset} ->
         {:error, changeset}
@@ -36,14 +34,15 @@ defmodule PlanningPoker.TeamUpdater do
     }
   end
 
-  defp create_ticket(_team, %{ "new_ticket_url" => "" }), do: nil
+  defp create_ticket(team, %{ "new_ticket_url" => "" }), do: {:ok, team, nil}
 
   defp create_ticket(team, %{ "new_ticket_url" => url }) do
-    Ecto.build_assoc(team, :tickets, build_ticket_params(team, url))
-    |> Repo.insert
+    {:ok, ticket} = Ecto.build_assoc(team, :tickets, build_ticket_params(team, url))
+                    |> Repo.insert
+    {:ok, team, ticket}
   end
 
-  defp create_ticket(_, _), do: nil
+  defp create_ticket(team, _), do: {:ok, team, nil}
 
   defp build_ticket_params(team, url) do
     %{

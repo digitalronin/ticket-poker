@@ -15,7 +15,7 @@ defmodule PlanningPoker.TeamController do
 
   def create(conn, %{"team" => team_params}) do
     case TeamUpdater.create(team_params) do
-      {:ok, _team} ->
+      {:ok, _team, _ticket} ->
         conn
         |> put_flash(:info, "Team created successfully.")
         |> redirect(to: team_path(conn, :index))
@@ -39,7 +39,7 @@ defmodule PlanningPoker.TeamController do
     team = find_team(id)
 
     case TeamUpdater.update(team, team_params) do
-      {:ok, team} ->
+      {:ok, team, _ticket} ->
         conn
         |> put_flash(:info, "Team updated successfully.")
         |> redirect(to: team_path(conn, :show, team))
