@@ -19,7 +19,9 @@ defmodule PlanningPoker.Router do
     get "/", PageController, :index
 
     resources "/teams", TeamController
-    resources "/tickets", TicketController
+    resources "/tickets", TicketController do
+      resources "/estimates", EstimateController
+    end
   end
 
   # Other scopes may use custom stacks.

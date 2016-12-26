@@ -1,3 +1,7 @@
+bookmark: creating an api for individual estimate updates. So, a PUT to /tickets/:ticket_id/estimates/:coder with a value, should update the corresponding ticket.
+This will be an HTML api at first, and we'll move to a JSON api for an SPA later
+
+
 add ticket handling
 - add tests
 - validate ticket urls
