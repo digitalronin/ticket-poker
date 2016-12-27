@@ -58,7 +58,7 @@ defmodule PlanningPoker.TeamControllerTest do
     team = Repo.insert! %Team{}
     conn = put conn, team_path(conn, :update, team), team: Map.put(@valid_attrs, "new_ticket_url", @ticket_url)
     ticket = Repo.one(from t in Ticket, select: t, limit: 1)
-    assert redirected_to(conn) == ticket_path(conn, :edit, ticket)
+    assert redirected_to(conn) == ticket_path(conn, :show, ticket)
     assert Repo.get_by(Team, @find_attrs)
   end
 

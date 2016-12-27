@@ -1,31 +1,15 @@
-<h2>Show ticket</h2>
+<h2>Ticket</h2>
 
-<ul>
+<div class="form-group">
+  URL: <%= @ticket.url %>
+</div>
 
-  <li>
-    <strong>Url:</strong>
-    <%= @ticket.url %>
-  </li>
+<div class="form-group">
+  <ul>
+    <%= for {coder, points} <- @ticket.estimates do %>
+      <%= render "estimate.html", conn: @conn, ticket: @ticket, coder: coder, points: points %>
+    <% end %>
+  </ul>
+</div>
 
-  <li>
-    <strong>Point options:</strong>
-    <%= @ticket.point_options %>
-  </li>
-
-  <li>
-    <ul>
-      <%= for {coder, points} <- @ticket.estimates do %>
-        <%= render "estimate.html", coder: coder, points: points, point_options: @ticket.point_options, ticket_id: @ticket.id %>
-      <% end %>
-    </ul>
-  </li>
-
-  <li>
-    <strong>Team:</strong>
-    <%= @ticket.team_id %>
-  </li>
-
-</ul>
-
-<%= link "Edit", to: ticket_path(@conn, :edit, @ticket) %>
-<%= link "Back", to: ticket_path(@conn, :index) %>
+<%= link "Back", to: team_path(@conn, :edit, @ticket.team_id) %>

@@ -48,7 +48,7 @@ defmodule PlanningPoker.TeamController do
 
           _ ->
             conn
-            |> redirect(to: ticket_path(conn, :edit, ticket))
+            |> redirect(to: ticket_path(conn, :show, ticket))
         end
 
       {:error, changeset} ->

@@ -1,11 +1,10 @@
 add ticket handling
+- hide estimates until they're all in
 - validate ticket urls
-- redirect to ticket edit page if a ticket was created after updating the team (otherwise, go back to team edit page, with a flash message)
-- ticket show page
-- display ticket url after creation
-- ticket estimates
+- copy ticket URL to clipboard
 
 display team URL after creation
+copy team URL to clipboard
 
 switch to UUID for teams.id
 switch to UUID for tickets.id
@@ -24,6 +23,8 @@ styling
 add funky graphics
 
 show ticket body in a separate (i)frame
+
+show list of open tickets, below team edit form?
 
 deploy
 
