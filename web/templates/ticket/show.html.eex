@@ -1,9 +1,18 @@
 <h2>Ticket</h2>
 
 <div class="form-group">
-  URL: <%= @ticket.url %>
+  <pre><%= ticket_url(@conn, :show, @ticket) %></pre>
+  Share this URL with your team
+</div>
+
+<div class="form-group">
+  <label>URL/Title</label>
+  <br />
+  <pre>
+    <%= link @ticket.url, to: @ticket.url %>
+  </pre>
 </div>
 
 <%= render "estimates.html", conn: @conn, ticket: @ticket %>
 
-<%= link "Back", to: team_path(@conn, :show, @ticket.team_id) %>
+<%= link "Back to team", to: team_path(@conn, :show, @ticket.team_id) %>
