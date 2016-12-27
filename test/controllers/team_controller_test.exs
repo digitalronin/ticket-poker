@@ -20,6 +20,13 @@ defmodule PlanningPoker.TeamControllerTest do
     assert Repo.get_by(Team, @find_attrs)
   end
 
+  test "redirects to ticket page after create, if ticket created", %{conn: conn} do
+    conn = post conn, team_path(conn, :create), team: Map.put(@valid_attrs, "new_ticket_url", @ticket_url)
+    ticket = Repo.one(from t in Ticket, select: t, limit: 1)
+    assert redirected_to(conn) == ticket_path(conn, :show, ticket)
+    assert Repo.get_by(Team, @find_attrs)
+  end
+
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
     conn = post conn, team_path(conn, :create), team: @invalid_attrs
     assert html_response(conn, 200) =~ "New team"

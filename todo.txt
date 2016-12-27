@@ -1,11 +1,10 @@
-if ticket is created with team, show ticket page after submit
-
 add ticket handling
 - show ticket url on ticket page
 - validate ticket urls
 - copy ticket URL to clipboard
 
 show team url on team page
+show team url on ticket page? (otherwise, if ticket was created with the team, team URL is not shown)
 copy team URL to clipboard
 
 styling

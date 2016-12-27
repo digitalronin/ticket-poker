@@ -10,10 +10,18 @@ defmodule PlanningPoker.TeamController do
 
   def create(conn, %{"team" => team_params}) do
     case TeamUpdater.create(team_params) do
-      {:ok, team, _ticket} ->
-        conn
-        |> put_flash(:info, "Team created successfully.")
-        |> redirect(to: team_path(conn, :show, team))
+      {:ok, team, ticket} ->
+        case ticket do
+          nil ->
+            conn
+            |> put_flash(:info, "Team created successfully.")
+            |> redirect(to: team_path(conn, :show, team))
+
+          _ ->
+            conn
+            |> redirect(to: ticket_path(conn, :show, ticket))
+        end
+
       {:error, changeset} ->
         render(conn, "new.html", team: %Team{}, changeset: changeset)
     end
