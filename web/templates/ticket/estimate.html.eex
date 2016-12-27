@@ -9,7 +9,11 @@
   <% _ -> %>
     <li>
       <%= @coder %>:
-      <%= @points %>
+      <%= if estimation_complete?(@ticket) do %>
+        <%= @points %>
+      <% else %>
+        [hidden]
+      <% end %>
       <%= link "Change", to: ticket_estimate_path(@conn, :update, @ticket.id, @coder, 0) %>
     </li>
 <% end %>

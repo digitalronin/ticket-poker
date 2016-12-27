@@ -1,0 +1,16 @@
+<%= if estimation_complete?(@ticket) do %>
+  <h2>Estimation complete</h2>
+<% else %>
+  <h2>Estimation is not complete</h2>
+<% end %>
+
+<div class="form-group">
+  <ul>
+    <%= for {coder, points} <- @ticket.estimates do %>
+      <%= render "estimate.html", conn: @conn,
+                                  ticket: @ticket,
+                                  coder: coder,
+                                  points: points %>
+    <% end %>
+  </ul>
+</div>

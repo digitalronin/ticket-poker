@@ -1,22 +1,21 @@
+switch to UUID for teams.id
+switch to UUID for tickets.id
+
 add ticket handling
-- hide estimates until they're all in
 - validate ticket urls
 - copy ticket URL to clipboard
 
 copy team URL to clipboard
 
-switch to UUID for teams.id
-switch to UUID for tickets.id
+styling
+
+add funky graphics
 
 default points to 1 2 3 5 8 13
 
 use websockets so concurrent users see each others' changes
 
 implement a JSON API and convert to SPA
-
-styling
-
-add funky graphics
 
 show ticket body in a separate (i)frame
 

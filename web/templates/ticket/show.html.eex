@@ -4,12 +4,6 @@
   URL: <%= @ticket.url %>
 </div>
 
-<div class="form-group">
-  <ul>
-    <%= for {coder, points} <- @ticket.estimates do %>
-      <%= render "estimate.html", conn: @conn, ticket: @ticket, coder: coder, points: points %>
-    <% end %>
-  </ul>
-</div>
+<%= render "estimates.html", conn: @conn, ticket: @ticket %>
 
 <%= link "Back", to: team_path(@conn, :show, @ticket.team_id) %>
