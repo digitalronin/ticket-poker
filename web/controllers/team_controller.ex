@@ -3,11 +3,6 @@ defmodule PlanningPoker.TeamController do
 
   alias PlanningPoker.{ Team, TeamUpdater }
 
-  def index(conn, _params) do
-    teams = Repo.all(Team)
-    render(conn, "index.html", teams: teams)
-  end
-
   def new(conn, _params) do
     changeset = Team.changeset(%Team{})
     render(conn, "new.html", changeset: changeset, team: %Team{})

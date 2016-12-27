@@ -3,5 +3,3 @@
 <%= render "form.html", changeset: @changeset,
                         action: team_path(@conn, :update, @team),
                         team: @team %>
-
-<%= link "Back", to: team_path(@conn, :index) %>
