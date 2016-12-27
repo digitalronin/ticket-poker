@@ -10,6 +10,8 @@ defmodule PlanningPoker.Ticket do
     timestamps()
   end
 
+  def new_ticket, do: %PlanningPoker.Ticket{ estimates: %{} }
+
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """

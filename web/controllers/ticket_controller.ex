@@ -9,12 +9,12 @@ defmodule PlanningPoker.TicketController do
   end
 
   def new(conn, _params) do
-    changeset = Ticket.changeset(%Ticket{})
-    render(conn, "new.html", changeset: changeset)
+    changeset = Ticket.changeset(Ticket.new_ticket)
+    render(conn, "new.html", changeset: changeset, ticket: Ticket.new_ticket)
   end
 
   def create(conn, %{"ticket" => ticket_params}) do
-    changeset = Ticket.changeset(%Ticket{}, ticket_params)
+    changeset = Ticket.changeset(Ticket.new_ticket, ticket_params)
 
     case Repo.insert(changeset) do
       {:ok, _ticket} ->
@@ -22,7 +22,7 @@ defmodule PlanningPoker.TicketController do
         |> put_flash(:info, "Ticket created successfully.")
         |> redirect(to: ticket_path(conn, :index))
       {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        render(conn, "new.html", changeset: changeset, ticket: Ticket.new_ticket)
     end
   end
 
@@ -62,4 +62,5 @@ defmodule PlanningPoker.TicketController do
     |> put_flash(:info, "Ticket deleted successfully.")
     |> redirect(to: ticket_path(conn, :index))
   end
+
 end

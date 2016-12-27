@@ -13,8 +13,11 @@
   </li>
 
   <li>
-    <strong>Estimates:</strong>
-    <%= @ticket.estimates %>
+    <ul>
+      <%= for {coder, points} <- @ticket.estimates do %>
+        <%= render "estimate.html", coder: coder, points: points %>
+      <% end %>
+    </ul>
   </li>
 
   <li>
