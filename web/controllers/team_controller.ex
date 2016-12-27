@@ -10,24 +10,20 @@ defmodule PlanningPoker.TeamController do
 
   def create(conn, %{"team" => team_params}) do
     case TeamUpdater.create(team_params) do
-      {:ok, _team, _ticket} ->
+      {:ok, team, _ticket} ->
         conn
         |> put_flash(:info, "Team created successfully.")
-        |> redirect(to: team_path(conn, :index))
+        |> redirect(to: team_path(conn, :show, team))
       {:error, changeset} ->
         render(conn, "new.html", team: %Team{}, changeset: changeset)
     end
   end
 
   def show(conn, %{"id" => id}) do
-    render(conn, "show.html", team: find_team(id))
-  end
-
-  def edit(conn, %{"id" => id}) do
     team = find_team(id)
     changeset = Team.changeset(team)
 
-    render(conn, "edit.html", team: team, changeset: changeset)
+    render(conn, "show.html", team: team, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "team" => team_params}) do
@@ -39,7 +35,7 @@ defmodule PlanningPoker.TeamController do
           nil ->
             conn
             |> put_flash(:info, "Team updated successfully.")
-            |> redirect(to: team_path(conn, :edit, team))
+            |> redirect(to: team_path(conn, :show, team))
 
           _ ->
             conn
@@ -47,18 +43,8 @@ defmodule PlanningPoker.TeamController do
         end
 
       {:error, changeset} ->
-        render(conn, "edit.html", team: team, changeset: changeset)
+        render(conn, "show.html", team: team, changeset: changeset)
     end
-  end
-
-  def delete(conn, %{"id" => id}) do
-    # Here we use delete! (with a bang) because we expect
-    # it to always work (and if it does not, it will raise).
-    Repo.delete!(find_team(id))
-
-    conn
-    |> put_flash(:info, "Team deleted successfully.")
-    |> redirect(to: team_path(conn, :index))
   end
 
   defp find_team(id), do: Repo.get!(Team, id)

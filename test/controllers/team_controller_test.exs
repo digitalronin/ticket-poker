@@ -8,11 +8,6 @@ defmodule PlanningPoker.TeamControllerTest do
   @ticket_url "http://foo.bar.baz"
   @invalid_attrs %{}
 
-  test "lists all entries on index", %{conn: conn} do
-    conn = get conn, team_path(conn, :index)
-    assert html_response(conn, 200) =~ "Listing teams"
-  end
-
   test "renders form for new resources", %{conn: conn} do
     conn = get conn, team_path(conn, :new)
     assert html_response(conn, 200) =~ "New team"
@@ -20,7 +15,8 @@ defmodule PlanningPoker.TeamControllerTest do
 
   test "creates resource and redirects when data is valid", %{conn: conn} do
     conn = post conn, team_path(conn, :create), team: @valid_attrs
-    assert redirected_to(conn) == team_path(conn, :index)
+    team = Repo.one(from t in Team, select: t, limit: 1)
+    assert redirected_to(conn) == team_path(conn, :show, team)
     assert Repo.get_by(Team, @find_attrs)
   end
 
@@ -32,7 +28,7 @@ defmodule PlanningPoker.TeamControllerTest do
   test "shows chosen resource", %{conn: conn} do
     team = Repo.insert! %Team{}
     conn = get conn, team_path(conn, :show, team)
-    assert html_response(conn, 200) =~ "Show team"
+    assert html_response(conn, 200) =~ "Edit team"
   end
 
   test "renders page not found when id is nonexistent", %{conn: conn} do
@@ -43,14 +39,14 @@ defmodule PlanningPoker.TeamControllerTest do
 
   test "renders form for editing chosen resource", %{conn: conn} do
     team = Repo.insert! %Team{}
-    conn = get conn, team_path(conn, :edit, team)
+    conn = get conn, team_path(conn, :show, team)
     assert html_response(conn, 200) =~ "Edit team"
   end
 
-  test "redirects back to team/edit, if no ticket created", %{conn: conn} do
+  test "redirects back to team/show, if no ticket created", %{conn: conn} do
     team = Repo.insert! %Team{}
     conn = put conn, team_path(conn, :update, team), team: @valid_attrs
-    assert redirected_to(conn) == team_path(conn, :edit, team)
+    assert redirected_to(conn) == team_path(conn, :show, team)
     assert Repo.get_by(Team, @find_attrs)
   end
 
@@ -68,10 +64,4 @@ defmodule PlanningPoker.TeamControllerTest do
     assert html_response(conn, 200) =~ "Edit team"
   end
 
-  test "deletes chosen resource", %{conn: conn} do
-    team = Repo.insert! %Team{}
-    conn = delete conn, team_path(conn, :delete, team)
-    assert redirected_to(conn) == team_path(conn, :index)
-    refute Repo.get(Team, team.id)
-  end
 end

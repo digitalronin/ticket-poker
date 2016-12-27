@@ -12,4 +12,4 @@
   </ul>
 </div>
 
-<%= link "Back", to: team_path(@conn, :edit, @ticket.team_id) %>
+<%= link "Back", to: team_path(@conn, :show, @ticket.team_id) %>
