@@ -1,6 +1,8 @@
 defmodule PlanningPoker.Ticket do
   use PlanningPoker.Web, :model
 
+  @primary_key {:id, :binary_id, autogenerate: true}
+
   schema "tickets" do
     field :url, :string
     field :point_options, {:array, :integer}

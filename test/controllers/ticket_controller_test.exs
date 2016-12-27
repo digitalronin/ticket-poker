@@ -20,7 +20,7 @@ defmodule PlanningPoker.TicketControllerTest do
 
   test "renders page not found when id is nonexistent", %{conn: conn} do
     assert_error_sent 404, fn ->
-      get conn, ticket_path(conn, :show, -1)
+      get conn, ticket_path(conn, :show, "35bf6df4-69a5-4bd3-a9e5-dddd7d55e3ea")
     end
   end
 
