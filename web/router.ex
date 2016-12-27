@@ -16,7 +16,7 @@ defmodule PlanningPoker.Router do
   scope "/", PlanningPoker do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", TeamController, :new
 
     resources "/teams", TeamController
     resources "/tickets", TicketController do
