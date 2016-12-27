@@ -3,20 +3,16 @@ add ticket handling
 - validate ticket urls
 - copy ticket URL to clipboard
 
-display team URL after creation
 copy team URL to clipboard
 
 switch to UUID for teams.id
 switch to UUID for tickets.id
 
-remove team index view
-remove unnecessary ticket views etc.
-
-prevent deleting teams
-
 default points to 1 2 3 5 8 13
 
 use websockets so concurrent users see each others' changes
+
+implement a JSON API and convert to SPA
 
 styling
 
@@ -26,5 +22,7 @@ show ticket body in a separate (i)frame
 
 show list of open tickets, below team edit form?
 
-deploy
+deploy to heroku
+
+auto-delete stuff after X days
 
