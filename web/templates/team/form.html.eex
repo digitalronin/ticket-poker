@@ -6,26 +6,35 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :name, class: "control-label" %>
+    <%= label f, "Team name", class: "control-label" %>
     <%= text_input f, :name, class: "form-control" %>
     <%= error_tag f, :name %>
   </div>
 
   <div class="form-group">
+    <%= label f, "Team URL", class: "control-label" %>
+    <pre><%= team_url(@conn, :show, @team) %></pre>
+    Share this URL with your team
+  </div>
+
+  <div class="form-group">
     <%= label f, :points, class: "control-label" %>
     <%= text_input f, :points_string, class: "form-control" %>
+    The set of possible point values used by your team, e.g. 1 2 3 5 8 13
     <%= error_tag f, :points %>
   </div>
 
   <div class="form-group">
-    <%= label f, :coders, class: "control-label" %>
-    <textarea class="form-control" id="team_coders" name="team[coders]"><%= coders_string(@team.coders) %></textarea>
+    <%= label f, :members, class: "control-label" %>
+    <textarea class="form-control" id="team_coders" name="team[coders]" rows="5"><%= coders_string(@team.coders) %></textarea>
+    List the members of your team who will supply estimates for tickets
     <%= error_tag f, :coders %>
   </div>
 
   <div class="form-group">
-    <%= label f, :new_ticket_url, class: "control-label" %>
+    <%= label f, :new_ticket, class: "control-label" %>
     <%= text_input f, :new_ticket_url, class: "form-control" %>
+    Enter the title of a ticket to estimate, or paste its URL
     <%= error_tag f, :new_ticket_url %>
   </div>
 
