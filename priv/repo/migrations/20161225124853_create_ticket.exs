@@ -6,7 +6,7 @@ defmodule PlanningPoker.Repo.Migrations.CreateTicket do
       add :url, :string
       add :point_options, {:array, :integer}
       add :estimates, :map
-      add :team_id, references(:teams, on_delete: :nothing)
+      add :team_id, references(:teams, type: :binary_id, on_delete: :nothing)
 
       timestamps()
     end

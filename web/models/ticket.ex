@@ -5,7 +5,7 @@ defmodule PlanningPoker.Ticket do
     field :url, :string
     field :point_options, {:array, :integer}
     field :estimates, :map
-    belongs_to :team, PlanningPoker.Team
+    belongs_to :team, PlanningPoker.Team, type: :binary_id
 
     timestamps()
   end

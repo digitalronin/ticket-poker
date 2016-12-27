@@ -1,6 +1,8 @@
 defmodule PlanningPoker.Team do
   use PlanningPoker.Web, :model
 
+  @primary_key {:id, :binary_id, autogenerate: true}
+
   schema "teams" do
     field :name, :string
     field :points, {:array, :integer}
