@@ -1,6 +1,7 @@
 defmodule PlanningPoker.TicketUpdater do
   alias PlanningPoker.Repo
 
+
   def create(team, %{ "new_ticket_url" => "" }), do: {:ok, team, nil}
 
   def create(team, %{ "new_ticket_url" => url }) do
@@ -10,6 +11,15 @@ defmodule PlanningPoker.TicketUpdater do
   end
 
   def create(team, _), do: {:ok, team, nil}
+
+
+  def update_estimate(ticket, coder, points) do
+    new_estimates = Map.put(ticket.estimates, coder, points)
+    Ecto.Changeset.change(ticket, %{ estimates: new_estimates }) |> Repo.update!
+    t = %{ ticket | estimates: new_estimates }
+    {:ok, t }
+  end
+
 
   defp build_ticket_params(team, url) do
     %{
