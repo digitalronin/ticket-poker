@@ -5,16 +5,23 @@
     </div>
   <% end %>
 
+  <%= if @team == %PlanningPoker.Team{} do %>
+    <blockquote>
+    Welcome to planning poker.
+    Setup your team and start estimating tickets.
+    </blockquote>
+
+  <% else %>
+    <div class="form-group">
+      <%= label f, "Team URL", class: "control-label" %>
+      <pre><%= team_url(@conn, :show, @team) %></pre>
+    </div>
+  <% end %>
+
   <div class="form-group">
     <%= label f, "Team name", class: "control-label" %>
     <%= text_input f, :name, class: "form-control" %>
     <%= error_tag f, :name %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, "Team URL", class: "control-label" %>
-    <pre><%= team_url(@conn, :show, @team) %></pre>
-    Share this URL with your team
   </div>
 
   <div class="form-group">
