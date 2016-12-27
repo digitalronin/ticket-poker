@@ -1,9 +1,11 @@
 defmodule PlanningPoker.TeamControllerTest do
   use PlanningPoker.ConnCase
 
-  alias PlanningPoker.Team
+  alias PlanningPoker.{Team, Ticket}
+
   @find_attrs %{coders: [], name: "some content", points: []}
   @valid_attrs Map.put(@find_attrs, :points_string, "")
+  @ticket_url "http://foo.bar.baz"
   @invalid_attrs %{}
 
   test "lists all entries on index", %{conn: conn} do
@@ -45,10 +47,18 @@ defmodule PlanningPoker.TeamControllerTest do
     assert html_response(conn, 200) =~ "Edit team"
   end
 
-  test "updates chosen resource and redirects when data is valid", %{conn: conn} do
+  test "redirects back to team/edit, if no ticket created", %{conn: conn} do
     team = Repo.insert! %Team{}
     conn = put conn, team_path(conn, :update, team), team: @valid_attrs
-    assert redirected_to(conn) == team_path(conn, :show, team)
+    assert redirected_to(conn) == team_path(conn, :edit, team)
+    assert Repo.get_by(Team, @find_attrs)
+  end
+
+  test "redirects to ticket page, if ticket created", %{conn: conn} do
+    team = Repo.insert! %Team{}
+    conn = put conn, team_path(conn, :update, team), team: Map.put(@valid_attrs, "new_ticket_url", @ticket_url)
+    ticket = Repo.one(from t in Ticket, select: t, limit: 1)
+    assert redirected_to(conn) == ticket_path(conn, :edit, ticket)
     assert Repo.get_by(Team, @find_attrs)
   end
 

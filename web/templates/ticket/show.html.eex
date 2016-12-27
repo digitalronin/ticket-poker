@@ -15,7 +15,7 @@
   <li>
     <ul>
       <%= for {coder, points} <- @ticket.estimates do %>
-        <%= render "estimate.html", coder: coder, points: points %>
+        <%= render "estimate.html", coder: coder, points: points, point_options: @ticket.point_options, ticket_id: @ticket.id %>
       <% end %>
     </ul>
   </li>

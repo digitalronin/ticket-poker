@@ -1,6 +1,11 @@
 <%= case @points do %>
   <% 0 -> %>
-    <li><%= @coder %>: No estimate supplied</li>
+    <li>
+      <%= @coder %>:
+      <%= for val <- @ticket.point_options do %>
+        <%= link val, to: ticket_estimate_path(@conn, :update, @ticket.id, @coder, val) %>
+      <% end %>
+    </li>
   <% _ -> %>
     <li><%= @coder %>: <%= @points %></li>
 <% end %>

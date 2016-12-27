@@ -1,5 +1,5 @@
 defmodule PlanningPoker.TicketUpdater do
-  alias PlanningPoker.Repo
+  alias PlanningPoker.{Repo, Ticket}
 
 
   def create(team, %{ "new_ticket_url" => "" }), do: {:ok, team, nil}
@@ -12,6 +12,11 @@ defmodule PlanningPoker.TicketUpdater do
 
   def create(team, _), do: {:ok, team, nil}
 
+
+  def update_estimate(%{ id: ticket_id, coder: coder, points: points}) do
+    Repo.get(Ticket, ticket_id)
+    |> update_estimate(coder, String.to_integer(points))
+  end
 
   def update_estimate(ticket, coder, points) do
     new_estimates = Map.put(ticket.estimates, coder, points)

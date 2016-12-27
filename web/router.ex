@@ -20,7 +20,7 @@ defmodule PlanningPoker.Router do
 
     resources "/teams", TeamController
     resources "/tickets", TicketController do
-      resources "/estimates", EstimateController
+      get "/estimate/:coder/:points", EstimateController, :update
     end
   end
 

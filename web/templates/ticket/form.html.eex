@@ -14,7 +14,7 @@
   <div class="form-group">
     <ul>
       <%= for {coder, points} <- @ticket.estimates do %>
-        <%= render "estimate.html", coder: coder, points: points %>
+        <%= render "estimate.html", conn: @conn, ticket: @ticket, coder: coder, points: points %>
       <% end %>
     </ul>
   </div>
