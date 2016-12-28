@@ -2,7 +2,14 @@
   <h2>Estimation complete</h2>
 <% else %>
   <h2>Estimation is not complete</h2>
+  <p>
+    Estimates are hidden until all team members have estimated
+  </p>
 <% end %>
+
+<p>
+  Click the cards to choose/change your estimate
+</p>
 
 <div class="estimates">
   <%= for {coder, points} <- @ticket.estimates do %>
@@ -12,3 +19,4 @@
                                 points: points %>
     <% end %>
 </div>
+

@@ -1,6 +1,6 @@
 /* This file is for your main application css. */
 
-$card_width: 100px;
+$card_width: 120px;
 
 @mixin card_padding {
   padding-top: $card_width / 4;
@@ -14,13 +14,15 @@ $card_width: 100px;
 
 div.estimates {
   margin-bottom: $card_width / 5;
+  width: 100%;
 
   div.estimate {
-    height: $card_width * 1.2;
+    display: flex;
     font-size: 150%;
+    clear: left;
+    margin-bottom: $card_width / 5;
 
     .coder {
-      font-size: 110%;
       font-weight: bold;
     }
 
