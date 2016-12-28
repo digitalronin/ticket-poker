@@ -1,17 +1,19 @@
+styling
+- show choices and coders as cards
+  - show coder and estimate together
+  - show coder and 'hidden' together
+  - show coder and 'pending' together
+- add funky graphics
+
 set team page title to team name
 
 add ticket handling
-- show ticket url on ticket page
 - validate ticket urls
 - copy ticket URL to clipboard
 
 show team url on team page
 show team url on ticket page? (otherwise, if ticket was created with the team, team URL is not shown)
 copy team URL to clipboard
-
-styling
-
-add funky graphics
 
 default points to 1 2 3 5 8 13
 

@@ -1,1 +1,33 @@
 /* This file is for your main application css. */
+
+div.estimates {
+  margin-bottom: 20px;
+}
+
+div.estimate {
+  height: 120px;
+}
+
+div.estimate-choice, div.estimate-coder, div.estimate-hidden, div.estimate-display {
+  width: 150px;
+  height: 100px;
+  margin: 5px;
+  float: left;
+}
+
+div.estimate-display {
+  border: 2px solid red;
+}
+
+div.estimate-choice {
+  border: 2px solid blue;
+}
+
+div.estimate-coder {
+  border: 2px solid green;
+}
+
+div.estimate-hidden {
+  border: 2px solid gray;
+}
+

@@ -1,19 +1,37 @@
-<%= case @points do %>
-  <% 0 -> %>
-    <li>
-      <%= @coder %>:
+<div class="estimate">
+  <%= case @points do %>
+    <% 0 -> %><%# coder has not supplied an estimate, yet %>
+
+      <div class="estimate-coder">
+        <%= @coder %>:
+      </div>
+
       <%= for val <- @ticket.point_options do %>
-        <%= link val, to: ticket_estimate_path(@conn, :update, @ticket.id, @coder, val) %>
+        <div class="estimate-choice">
+          <%= link to: ticket_estimate_path(@conn, :update, @ticket.id, @coder, val) do %>
+            <%= val %>
+          <% end %>
+        </div>
       <% end %>
-    </li>
-  <% _ -> %>
-    <li>
-      <%= @coder %>:
-      <%= if estimation_complete?(@ticket) do %>
-        <%= @points %>
-      <% else %>
-        [hidden]
+
+      <% _ -> %><%# coder has supplied an estimate %>
+
+        <div class="estimate-coder">
+          <%= @coder %>:
+        </div>
+
+        <%= if estimation_complete?(@ticket) do %>
+          <div class="estimate-display">
+            <%= @points %>
+            <%= link "Change", to: ticket_estimate_path(@conn, :update, @ticket.id, @coder, 0) %>
+          </div>
+        <% else %>
+          <div class="estimate-hidden">
+            [hidden]
+            <%= link "Change", to: ticket_estimate_path(@conn, :update, @ticket.id, @coder, 0) %>
+          </div>
+        <% end %>
+
       <% end %>
-      <%= link "Change", to: ticket_estimate_path(@conn, :update, @ticket.id, @coder, 0) %>
-    </li>
-<% end %>
+</div>
+
