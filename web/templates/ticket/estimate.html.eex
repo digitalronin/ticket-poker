@@ -2,17 +2,9 @@
   <%= case @points do %>
     <% 0 -> %><%# coder has not supplied an estimate, yet %>
 
-      <div class="estimate-card estimate-pending">
-        <span class="coder"><%= @coder %></span>
-      </div>
-
-      <%= for val <- @ticket.point_options do %>
-        <div class="estimate-card estimate-choice">
-          <%= link to: ticket_estimate_path(@conn, :update, @ticket.id, @coder, val) do %>
-            <%= val %>
-          <% end %>
-        </div>
-      <% end %>
+    <%= render "pending_estimate.html", conn: @conn,
+                                        ticket: @ticket,
+                                        coder: @coder %>
 
       <% _ -> %><%# coder has supplied an estimate %>
 

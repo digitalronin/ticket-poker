@@ -1,8 +1,6 @@
 styling
-- show choices and coders as cards
-  - show coder and estimate together
-  - show coder and 'hidden' together
-  - show coder and 'pending' together
+- add rounded corners and background textures to cards
+- show completed choices in a single row
 - add funky graphics
 
 set team page title to team name
