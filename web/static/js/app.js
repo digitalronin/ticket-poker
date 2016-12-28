@@ -19,3 +19,19 @@ import "phoenix_html"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+
+export var App = {
+  run: function(){
+
+    var clipboard = new Clipboard(".js-clipboard-trigger")
+    clipboard.on('success', function(e) {
+      // TODO: animate the clipboard icon
+      // console.info('Action:', e.action);
+      // console.info('Text:', e.text);
+      // console.info('Trigger:', e.trigger);
+      //
+      // e.clearSelection();
+    });
+
+  }
+}

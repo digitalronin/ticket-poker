@@ -1,7 +1,10 @@
+default points to 1 2 3 5 8 13
+
+animate the clipboard icon, so user sees that copying has succeeded
+
 styling
 - show completed choices in a single row
 - add funky graphics
-
 
 add some explanatory text on the first page
 
@@ -9,13 +12,10 @@ set team page title to team name
 
 add ticket handling
 - validate ticket urls
-- copy ticket URL to clipboard
 
 show team url on team page
 show team url on ticket page? (otherwise, if ticket was created with the team, team URL is not shown)
 copy team URL to clipboard
-
-default points to 1 2 3 5 8 13
 
 use websockets so concurrent users see each others' changes
 

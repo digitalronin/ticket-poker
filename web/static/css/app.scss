@@ -13,6 +13,15 @@ $card_border_color: #777;
   @include card_padding;
 }
 
+.icon {
+  height: 25px;
+  cursor: pointer;
+}
+
+.pull-right {
+  float: right;
+}
+
 div.estimates {
   margin-bottom: $card_width / 5;
   width: 100%;

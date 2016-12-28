@@ -15,7 +15,8 @@
     <div class="form-group">
       <%= label f, "Team URL", class: "control-label" %>
       <div class="well well-sm">
-        <%= team_url(@conn, :show, @team) %>
+        <span id="team_url"><%= team_url(@conn, :show, @team) %></span>
+        <%= img_tag "/images/clipboard.svg", class: "icon pull-right js-clipboard-trigger", "data-clipboard-target": "#team_url" %>
       </div>
     </div>
   <% end %>
