@@ -2,6 +2,12 @@
 
 $card_width: 100px;
 
+@mixin card_link {
+  display: block;
+  padding-top: $card_width / 4;
+  padding-bottom: $card_width / 3;
+}
+
 div.estimates {
   margin-bottom: $card_width / 5;
 
@@ -10,12 +16,12 @@ div.estimates {
     font-size: 150%;
 
     .coder {
-      padding-left: 5px;
       font-size: 110%;
       font-weight: bold;
     }
 
     div.estimate-card {
+      text-align: center;
       padding: 5px;
       width: $card_width;
       height: $card_width * 1.1;
@@ -28,18 +34,17 @@ div.estimates {
     }
 
     div.estimate-choice {
-      text-align: center;
       border: 2px solid blue;
+      a { @include card_link; }
+    }
 
-      a {
-        display: block;
-        padding-top: $card_width / 4;
-        padding-bottom: $card_width / 4;
-      }
+    div.estimate-pending {
+      border: 2px solid green;
     }
 
     div.estimate-hidden {
       border: 2px solid gray;
+      a { @include card_link; }
     }
   }
 }

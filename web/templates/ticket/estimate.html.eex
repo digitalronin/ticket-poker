@@ -2,7 +2,7 @@
   <%= case @points do %>
     <% 0 -> %><%# coder has not supplied an estimate, yet %>
 
-      <div class="estimate-card estimate-coder">
+      <div class="estimate-card estimate-pending">
         <span class="coder"><%= @coder %></span>
         [pending]
       </div>
@@ -27,10 +27,9 @@
 
         <% else %>
           <div class="estimate-card estimate-hidden">
-            <span class="coder"><%= @coder %></span>
-
-            [hidden]
-            <%= link "Change", to: ticket_estimate_path(@conn, :update, @ticket.id, @coder, 0) %>
+            <%= link to: ticket_estimate_path(@conn, :update, @ticket.id, @coder, 0) do %>
+              <span class="coder"><%= @coder %></span>
+            <% end %>
           </div>
         <% end %>
 
