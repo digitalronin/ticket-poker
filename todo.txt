@@ -1,3 +1,7 @@
+deploy to heroku
+- letsencrypt certs
+- continuous deployment
+
 default points to 1 2 3 5 8 13
 
 animate the clipboard icon, so user sees that copying has succeeded
@@ -24,8 +28,6 @@ implement a JSON API and convert to SPA
 show ticket body in a separate (i)frame
 
 show list of open tickets, below team edit form?
-
-deploy to heroku
 
 auto-delete stuff after X days
 
