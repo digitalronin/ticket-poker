@@ -3,7 +3,7 @@
     <% 0 -> %><%# coder has not supplied an estimate, yet %>
 
       <div class="estimate-card estimate-coder">
-        <%= @coder %>
+        <span class="coder"><%= @coder %></span>
         [pending]
       </div>
 
@@ -20,14 +20,14 @@
         <%= if estimation_complete?(@ticket) do %>
 
           <div class="estimate-card estimate-completed">
-            <%= @coder %>
+            <span class="coder"><%= @coder %></span>
             <%= @points %>
             <%= link "Change", to: ticket_estimate_path(@conn, :update, @ticket.id, @coder, 0) %>
           </div>
 
         <% else %>
           <div class="estimate-card estimate-hidden">
-            <%= @coder %>
+            <span class="coder"><%= @coder %></span>
 
             [hidden]
             <%= link "Change", to: ticket_estimate_path(@conn, :update, @ticket.id, @coder, 0) %>

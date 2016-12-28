@@ -1,42 +1,46 @@
 /* This file is for your main application css. */
 
+$card_width: 100px;
+
 div.estimates {
-  margin-bottom: 20px;
+  margin-bottom: $card_width / 5;
 
   div.estimate {
-    height: 120px;
+    height: $card_width * 1.2;
     font-size: 150%;
+
+    .coder {
+      padding-left: 5px;
+      font-size: 110%;
+      font-weight: bold;
+    }
 
     div.estimate-card {
       padding: 5px;
-      width: 150px;
-      height: 100px;
+      width: $card_width;
+      height: $card_width * 1.1;
       margin: 5px;
       float: left;
     }
-  }
 
-  div.estimate-completed {
-    border: 2px solid red;
-  }
-
-  div.estimate-choice {
-    text-align: center;
-    border: 2px solid blue;
-
-    a {
-      display: block;
-      padding-top: 25px;
-      padding-bottom: 25px;
+    div.estimate-completed {
+      border: 2px solid red;
     }
-  }
 
-  div.estimate-coder {
-    border: 2px solid green;
-  }
+    div.estimate-choice {
+      text-align: center;
+      border: 2px solid blue;
 
-  div.estimate-hidden {
-    border: 2px solid gray;
+      a {
+        display: block;
+        padding-top: $card_width / 4;
+        padding-bottom: $card_width / 4;
+      }
+    }
+
+    div.estimate-hidden {
+      border: 2px solid gray;
+    }
   }
 }
 
