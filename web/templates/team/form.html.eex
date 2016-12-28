@@ -14,7 +14,9 @@
   <% else %>
     <div class="form-group">
       <%= label f, "Team URL", class: "control-label" %>
-      <pre><%= team_url(@conn, :show, @team) %></pre>
+      <div class="well well-sm">
+        <%= team_url(@conn, :show, @team) %>
+      </div>
     </div>
   <% end %>
 

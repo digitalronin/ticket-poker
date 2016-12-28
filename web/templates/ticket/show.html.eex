@@ -1,16 +1,17 @@
 <h2>Ticket</h2>
 
 <div class="form-group">
-  <pre><%= ticket_url(@conn, :show, @ticket) %></pre>
-  Share this URL with your team
+  Share this URL with your team so they can estimate
+  <div class="well well-sm">
+    <%= ticket_url(@conn, :show, @ticket) %>
+  </div>
 </div>
 
 <div class="form-group">
   <label>URL/Title</label>
-  <br />
-  <pre>
+  <div class="well well-sm">
     <%= link @ticket.url, to: @ticket.url %>
-  </pre>
+  </div>
 </div>
 
 <%= render "estimates.html", conn: @conn, ticket: @ticket %>
