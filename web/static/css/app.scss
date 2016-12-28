@@ -1,6 +1,7 @@
 /* This file is for your main application css. */
 
 $card_width: 120px;
+$card_border_color: #777;
 
 @mixin card_padding {
   padding-top: $card_width / 4;
@@ -27,6 +28,10 @@ div.estimates {
     }
 
     div.estimate-card {
+      background-image: linear-gradient(135deg, #fff, #eee);
+      border: 2px inset $card_border_color;
+      border-radius: $card_width / 8;
+      box-shadow: 3px 3px 8px #888888;
       text-align: center;
       padding: 5px;
       width: $card_width;
@@ -36,22 +41,18 @@ div.estimates {
     }
 
     div.estimate-completed {
-      border: 2px solid red;
       a { @include card_link; }
     }
 
     div.estimate-choice {
-      border: 2px solid blue;
       a { @include card_link; }
     }
 
     div.estimate-pending {
-      border: 2px solid green;
       @include card_padding;
     }
 
     div.estimate-hidden {
-      border: 2px solid gray;
       a { @include card_link; }
     }
   }

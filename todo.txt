@@ -1,7 +1,9 @@
 styling
-- add rounded corners and background textures to cards
 - show completed choices in a single row
 - add funky graphics
+
+
+add some explanatory text on the first page
 
 set team page title to team name
 

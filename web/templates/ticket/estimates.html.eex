@@ -1,7 +1,7 @@
 <%= if estimation_complete?(@ticket) do %>
   <h2>Estimation complete</h2>
 <% else %>
-  <h2>Estimation is not complete</h2>
+  <h2>Estimation pending</h2>
   <p>
     Estimates are hidden until all team members have estimated
   </p>

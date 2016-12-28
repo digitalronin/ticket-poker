@@ -10,21 +10,16 @@
 
         <%= if estimation_complete?(@ticket) do %>
 
-          <div class="estimate-card estimate-completed">
-            <%= link to: ticket_estimate_path(@conn, :update, @ticket.id, @coder, 0) do %>
-              <span class="coder"><%= @coder %></span>:
-              <%= @points %>
-            <% end %>
-          </div>
-
+          <%= render "completed_estimate.html", conn: @conn,
+                                                ticket: @ticket,
+                                                points: @points,
+                                                coder: @coder %>
         <% else %>
-          <div class="estimate-card estimate-hidden">
-            <%= link to: ticket_estimate_path(@conn, :update, @ticket.id, @coder, 0) do %>
-              <span class="coder"><%= @coder %></span>: ?
-            <% end %>
-          </div>
+
+          <%= render "hidden_estimate.html", conn: @conn,
+                                             ticket: @ticket,
+                                             coder: @coder %>
         <% end %>
 
       <% end %>
 </div>
-
