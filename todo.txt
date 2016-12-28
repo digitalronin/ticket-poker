@@ -1,6 +1,8 @@
-deploy to heroku
-- letsencrypt certs
-- continuous deployment
+implement a JSON API and convert to SPA
+- estimating
+  - bind a click event to the choice cards
+  - use a JSON-API interface to handle the click
+  - re-render the estimate as hidden/completed
 
 default points to 1 2 3 5 8 13
 
@@ -23,12 +25,11 @@ copy team URL to clipboard
 
 use websockets so concurrent users see each others' changes
 
-implement a JSON API and convert to SPA
-
 show ticket body in a separate (i)frame
 
 show list of open tickets, below team edit form?
 
 auto-delete stuff after X days
 
-dummy commit: heroku buildpacks:add https://github.com/gjaldon/heroku-buildpack-phoenix-static.git
+deploy to heroku - continuous deployment
+
