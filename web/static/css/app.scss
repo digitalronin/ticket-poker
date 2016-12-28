@@ -1,0 +1,42 @@
+/* This file is for your main application css. */
+
+div.estimates {
+  margin-bottom: 20px;
+
+  div.estimate {
+    height: 120px;
+    font-size: 150%;
+
+    div.estimate-card {
+      padding: 5px;
+      width: 150px;
+      height: 100px;
+      margin: 5px;
+      float: left;
+    }
+  }
+
+  div.estimate-completed {
+    border: 2px solid red;
+  }
+
+  div.estimate-choice {
+    text-align: center;
+    border: 2px solid blue;
+
+    a {
+      display: block;
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+  }
+
+  div.estimate-coder {
+    border: 2px solid green;
+  }
+
+  div.estimate-hidden {
+    border: 2px solid gray;
+  }
+}
+
