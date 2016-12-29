@@ -17,22 +17,8 @@ let CoderEstimates = React.createClass({
     }
   },
 
-  componentDidMount: function() {
-    let url = `/api/tickets/${this.props.ticketId}`
-
-    $.ajax({
-      url: url,
-      dataType: 'json',
-      success: (response) => {
-        var data = response.data
-        console.log('ajax response', response.data);
-        this.setState({
-          url:           data.url,
-          pointOptions:  data.point_options,
-          estimates:     data.estimates
-        })
-      }
-    })
+  componentDidMount() {
+    this.fetchServerData()
   },
 
   render() {
@@ -51,25 +37,10 @@ let CoderEstimates = React.createClass({
     )
   },
 
-  updateEstimate(coder, points) {
-    var clone = this.cloneEstimates()
-    clone[coder] = points
-    // TODO: push to server
-    this.setState({ estimates: clone })
-  },
-
-  cloneEstimates() {
-    var clone = {}
-    Object.keys(this.state.estimates).map((key) => {
-      clone[key] = this.state.estimates[key]
-    })
-    return clone
-  },
-
-
   isEstimateComplete(estimates) {
     return Object.values(estimates).indexOf(0) === -1
   },
+
 
   estimateRow(estimateComplete, coder, points) {
     var rtn
@@ -79,26 +50,79 @@ let CoderEstimates = React.createClass({
       rtn = <CoderEstimatePending key={coder}
                                   coder={coder}
                                   pointOptions={this.state.pointOptions}
-                                  onEstimate={this.updateEstimate}
-            />
+                                  onEstimate={this.updateEstimate} />
 
     } else {
+
       rtn = (estimateComplete)
             ? <CoderEstimateCompleted key={coder}
                                       coder={coder}
                                       points={points}
-                                      onClick={this.updateEstimate}
-              />
-
+                                      onClick={this.updateEstimate} />
             : <CoderEstimateHidden key={coder}
                                    coder={coder}
-                                   onClick={this.updateEstimate}
-              />
+                                   onClick={this.updateEstimate} />
     }
 
     return rtn
+  },
+
+
+  updateEstimate(coder, points) {
+    var estimates = this.cloneEstimates(this.state.estimates)
+    estimates[coder] = points
+
+    var data = {
+      ticket: {
+        estimates: estimates
+      }
+    }
+
+    this.pushDataToServer(data)
+  },
+
+  convertJsonData(data) {
+    return {
+      url: data.url,
+      pointOptions: data.point_options.map((i) => { return parseInt(i) }),
+      estimates: this.cloneEstimates(data.estimates)
+    }
+  },
+
+  cloneEstimates(estimates) {
+    var clone = {}
+    Object.keys(estimates).map((key) => {
+      clone[key] = parseInt(estimates[key])
+    })
+    return clone
+  },
+
+  dataUrl() {
+    return `/api/tickets/${this.props.ticketId}`
+  },
+
+  fetchServerData() {
+    $.ajax({
+      url: this.dataUrl(),
+      dataType: 'json',
+      success: (response) => {
+        this.setState(this.convertJsonData(response.data))
+      }
+    })
+  },
+
+  pushDataToServer(data) {
+    $.ajax({
+      url: this.dataUrl(),
+      dataType: 'json',
+      method: 'PUT',
+      data: data,
+      success: (response) => {
+        this.setState(this.convertJsonData(response.data))
+      }
+    })
   }
+
 })
 
 module.exports = CoderEstimates
-
