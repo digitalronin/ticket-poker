@@ -7,8 +7,10 @@ defmodule PlanningPoker.API.TicketView do
 
   def render("ticket.json", %{ticket: ticket}) do
     %{
-      id:   ticket.id,
-      url:  ticket.url
+      id:             ticket.id,
+      url:            ticket.url,
+      estimates:      ticket.estimates,
+      point_options:  ticket.point_options
     }
   end
 end
