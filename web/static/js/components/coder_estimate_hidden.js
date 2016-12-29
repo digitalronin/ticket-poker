@@ -2,7 +2,8 @@ import React from "react"
 
 var CoderEstimateHidden = React.createClass({
   propTypes: {
-    coder: React.PropTypes.string,
+    coder:    React.PropTypes.string,
+    onClick:  React.PropTypes.func
   },
 
   render() {
@@ -16,7 +17,7 @@ var CoderEstimateHidden = React.createClass({
   },
 
   handleClick() {
-    console.log(`${this.props.coder} wants to change their hidden estimate`)
+    this.props.onClick(this.props.coder, 0)
   }
 
 })

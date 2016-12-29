@@ -1,32 +1,30 @@
 import React from "react"
 
-import CoderEstimateHidden from "./coder_estimate_hidden"
+import CoderEstimateHidden    from "./coder_estimate_hidden"
 import CoderEstimateCompleted from "./coder_estimate_completed"
-import CoderEstimatePending from "./coder_estimate_pending"
-
-// TODO: pass in the state as estimates hash and pointOptions array
-// TODO: get the ticket data from the server
-// TODO: push new ticket data to the server
+import CoderEstimatePending   from "./coder_estimate_pending"
 
 var CoderEstimates = React.createClass({
   propTypes: {
-    estimates: React.PropTypes.object,
-    pointOptions: React.PropTypes.array
+    estimates:     React.PropTypes.object,
+    pointOptions:  React.PropTypes.array
   },
 
   getInitialState() {
+    // TODO: fetch from server
     return {
       estimates: this.props.estimates
     }
   },
 
   render() {
-    var estimateComplete = this.isEstimateComplete(this.state.estimates)
+    let estimateComplete = this.isEstimateComplete(this.state.estimates)
 
     var estimateRows = Object.keys(this.state.estimates).map((key) => {
       return this.estimateRow(estimateComplete, key, this.state.estimates[key])
     })
 
+    // TODO: remove the hr
     return(
       <div className="estimates">
         {estimateRows}
@@ -36,15 +34,17 @@ var CoderEstimates = React.createClass({
   },
 
   updateEstimate(coder, points) {
-    console.log('updateEstimate', coder, points)
     var clone = this.cloneEstimates()
     clone[coder] = points
+    // TODO: push to server
     this.setState({ estimates: clone })
   },
 
   cloneEstimates() {
     var clone = {}
-    Object.keys(this.state.estimates).map((key) => { clone[key] = this.state.estimates[key] })
+    Object.keys(this.state.estimates).map((key) => {
+      clone[key] = this.state.estimates[key]
+    })
     return clone
   },
 
@@ -52,7 +52,6 @@ var CoderEstimates = React.createClass({
   isEstimateComplete(estimates) {
     return Object.values(estimates).indexOf(0) === -1
   },
-
 
   estimateRow(estimateComplete, coder, points) {
     var rtn
@@ -67,8 +66,16 @@ var CoderEstimates = React.createClass({
 
     } else {
       rtn = (estimateComplete)
-            ? <CoderEstimateCompleted key={coder} coder={coder} points={points} />
-            : <CoderEstimateHidden key={coder} coder={coder} />
+            ? <CoderEstimateCompleted key={coder}
+                                      coder={coder}
+                                      points={points}
+                                      onClick={this.updateEstimate}
+              />
+
+            : <CoderEstimateHidden key={coder}
+                                   coder={coder}
+                                   onClick={this.updateEstimate}
+              />
     }
 
     return rtn

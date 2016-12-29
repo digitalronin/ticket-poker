@@ -2,8 +2,9 @@ import React from "react"
 
 var CoderEstimateCompleted = React.createClass({
   propTypes: {
-    coder: React.PropTypes.string,
-    points: React.PropTypes.number
+    coder:    React.PropTypes.string,
+    points:   React.PropTypes.number,
+    onClick:  React.PropTypes.func
   },
 
   render() {
@@ -17,7 +18,7 @@ var CoderEstimateCompleted = React.createClass({
   },
 
   handleClick() {
-    console.log(`${this.props.coder} says change my estimate`)
+    this.props.onClick(this.props.coder, 0)
   }
 })
 
