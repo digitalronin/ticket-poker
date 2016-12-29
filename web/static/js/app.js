@@ -23,11 +23,11 @@ import "phoenix_html"
 import React from "react"
 import ReactDOM from "react-dom"
 
-import HelloWorld from "./components/hello"
+import CoderEstimates from "./components/coder_estimates"
 
 export var App = {
   run: function(){
-    ReactDOM.render(<HelloWorld />, document.getElementById("estimates-react-target"))
+    ReactDOM.render(<CoderEstimates estimateComplete={true} />, document.getElementById("estimates-react-target"))
 
     var clipboard = new Clipboard(".js-clipboard-trigger")
     clipboard.on('success', function(e) {
