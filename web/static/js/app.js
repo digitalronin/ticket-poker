@@ -23,7 +23,7 @@ import "phoenix_html"
 import React from "react"
 import ReactDOM from "react-dom"
 
-import HelloWorld from "./hello"
+import HelloWorld from "./components/hello"
 
 export var App = {
   run: function(){
