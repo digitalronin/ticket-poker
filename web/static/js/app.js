@@ -20,8 +20,20 @@ import "phoenix_html"
 
 // import socket from "./socket"
 
+import React from "react"
+import ReactDOM from "react-dom"
+
+var HelloWorld = React.createClass({
+  render() {
+    return(
+      <h1>Hello React</h1>
+    )
+  }
+})
+
 export var App = {
   run: function(){
+    ReactDOM.render(<HelloWorld />, document.getElementById("estimates-react-target"))
 
     var clipboard = new Clipboard(".js-clipboard-trigger")
     clipboard.on('success', function(e) {

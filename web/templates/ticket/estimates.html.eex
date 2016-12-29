@@ -11,6 +11,8 @@
   Click the cards to choose/change your estimate
 </p>
 
+<div id="estimates-react-target"></div>
+
 <div class="estimates">
   <%= for {coder, points} <- @ticket.estimates do %>
     <%= render "estimate.html", conn: @conn,
