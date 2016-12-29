@@ -33,4 +33,4 @@
 <%= link "Back to team", to: team_path(@conn, :show, @ticket.team_id) %>
 
 <div id="ticket_id" data-ticket-id="<%= @ticket.id %>"></div>
-
+<script>window.ticketId = "<%= @ticket.id %>"</script>

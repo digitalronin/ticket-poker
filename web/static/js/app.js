@@ -28,15 +28,11 @@ import CoderEstimates from "./components/coder_estimates"
 export var App = {
   run: function(){
 
-    // TODO: get these from the server
-
-    let el = document.getElementById("ticket_id")
-
-    if (el) {
-      let ticketId = el.dataset.ticketId
+    if (window.ticketId) {
       let reactTarget = document.getElementById("estimates-react-target")
 
-      ReactDOM.render(<CoderEstimates ticketId={ticketId} />, reactTarget)
+      // window.ticketId is set by a script tag in the ticket/show template
+      ReactDOM.render(<CoderEstimates ticketId={window.ticketId} />, reactTarget)
     }
 
     let clipboard = new Clipboard(".js-clipboard-trigger")
