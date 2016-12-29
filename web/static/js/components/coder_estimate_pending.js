@@ -6,12 +6,19 @@ import EstimateChoice from "./estimate_choice"
 
 var CoderEstimatePending = React.createClass({
   propTypes: {
-    coder: React.PropTypes.string,
-    pointOptions: React.PropTypes.array
+    coder:         React.PropTypes.string,
+    pointOptions:  React.PropTypes.array,
+    onEstimate:    React.PropTypes.func
   },
 
   render() {
-    var choices = this.props.pointOptions.map((p) => { return <EstimateChoice coder={this.props.coder} key={p} value={p} /> })
+    var choices = this.props.pointOptions.map((p) => {
+      return <EstimateChoice coder={this.props.coder}
+                             key={p}
+                             value={p}
+                             onClick={this.props.onEstimate}
+        />
+    })
 
     return(
       <div className="estimate">

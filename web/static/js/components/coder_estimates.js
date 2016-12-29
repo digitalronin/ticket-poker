@@ -35,6 +35,10 @@ var CoderEstimates = React.createClass({
     )
   },
 
+  updateEstimate(coder, points) {
+    console.log('updateEstimate', coder, points)
+  },
+
 
   isEstimateComplete(estimates) {
     return Object.values(estimates).indexOf(0) === -1
@@ -45,7 +49,13 @@ var CoderEstimates = React.createClass({
     var rtn
 
     if (points === 0) {
-      rtn = <CoderEstimatePending key={coder} coder={coder} pointOptions={this.props.pointOptions} />
+
+      rtn = <CoderEstimatePending key={coder}
+                                  coder={coder}
+                                  pointOptions={this.props.pointOptions}
+                                  onEstimate={this.updateEstimate}
+            />
+
     } else {
       rtn = (estimateComplete)
             ? <CoderEstimateCompleted key={coder} coder={coder} points={points} />
