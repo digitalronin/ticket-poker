@@ -23,13 +23,7 @@ import "phoenix_html"
 import React from "react"
 import ReactDOM from "react-dom"
 
-var HelloWorld = React.createClass({
-  render() {
-    return(
-      <h1>Hello React</h1>
-    )
-  }
-})
+import HelloWorld from "./hello"
 
 export var App = {
   run: function(){
