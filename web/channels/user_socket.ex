@@ -1,12 +1,15 @@
 defmodule PlanningPoker.UserSocket do
   use Phoenix.Socket
 
+  require Logger
+
   ## Channels
   # channel "room:*", PlanningPoker.RoomChannel
+  channel "ticket:*", PlanningPoker.TicketChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
-  # transport :longpoll, Phoenix.Transports.LongPoll
+  transport :longpoll,  Phoenix.Transports.LongPoll
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
@@ -20,6 +23,7 @@ defmodule PlanningPoker.UserSocket do
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
   def connect(_params, socket) do
+    Logger.info "socket connected"
     {:ok, socket}
   end
 
