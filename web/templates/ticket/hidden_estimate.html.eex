@@ -1,5 +1,0 @@
-<div class="estimate-card estimate-hidden">
-  <%= link to: ticket_estimate_path(@conn, :update, @ticket.id, @coder, 0) do %>
-    <span class="coder"><%= @coder %></span>: ?
-  <% end %>
-</div>

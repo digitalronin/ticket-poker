@@ -15,7 +15,20 @@
   </div>
 </div>
 
-<%= render "estimates.html", conn: @conn, ticket: @ticket %>
+<%= if estimation_complete?(@ticket) do %>
+  <h2>Estimation complete</h2>
+<% else %>
+  <h2>Estimation pending</h2>
+  <p>
+    Estimates are hidden until all team members have estimated
+  </p>
+<% end %>
+
+<p>
+  Click the cards to choose/change your estimate
+</p>
+
+<div id="estimates-react-target"></div>
 
 <%= link "Back to team", to: team_path(@conn, :show, @ticket.team_id) %>
 

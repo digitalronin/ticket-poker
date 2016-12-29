@@ -28,11 +28,9 @@ let CoderEstimates = React.createClass({
       return this.estimateRow(estimateComplete, key, this.state.estimates[key])
     })
 
-    // TODO: remove the hr
     return(
       <div className="estimates">
         {estimateRows}
-        <hr />
       </div>
     )
   },
@@ -41,19 +39,15 @@ let CoderEstimates = React.createClass({
     return Object.values(estimates).indexOf(0) === -1
   },
 
-
   estimateRow(estimateComplete, coder, points) {
     var rtn
 
     if (points === 0) {
-
       rtn = <CoderEstimatePending key={coder}
                                   coder={coder}
                                   pointOptions={this.state.pointOptions}
                                   onEstimate={this.updateEstimate} />
-
     } else {
-
       rtn = (estimateComplete)
             ? <CoderEstimateCompleted key={coder}
                                       coder={coder}

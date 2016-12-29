@@ -19,8 +19,12 @@ defmodule PlanningPoker.API.TicketControllerTest do
   test "shows chosen resource", %{conn: conn} do
     ticket = Repo.insert! %Ticket{}
     conn = get conn, api_ticket_path(conn, :show, ticket)
-    assert json_response(conn, 200)["data"] == %{"id" => ticket.id,
-      "url" => ticket.url}
+    assert json_response(conn, 200)["data"] == %{
+      "id"            => ticket.id,
+      "url"           => ticket.url,
+      "estimates"     => nil,
+      "point_options" => nil
+    }
   end
 
   test "renders page not found when id is nonexistent", %{conn: conn} do
