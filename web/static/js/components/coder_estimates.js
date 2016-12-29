@@ -6,21 +6,39 @@ import CoderEstimatePending   from "./coder_estimate_pending"
 
 let CoderEstimates = React.createClass({
   propTypes: {
-    estimates:     React.PropTypes.object,
-    pointOptions:  React.PropTypes.array
+    ticketId:  React.PropTypes.string
   },
 
   getInitialState() {
-    // TODO: fetch from server
     return {
-      estimates: this.props.estimates
+      url:           "",
+      pointOptions:  [],
+      estimates:     {}
     }
+  },
+
+  componentDidMount: function() {
+    let url = `/api/tickets/${this.props.ticketId}`
+
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      success: (response) => {
+        var data = response.data
+        console.log('ajax response', response.data);
+        this.setState({
+          url:           data.url,
+          pointOptions:  data.point_options,
+          estimates:     data.estimates
+        })
+      }
+    })
   },
 
   render() {
     let estimateComplete = this.isEstimateComplete(this.state.estimates)
 
-    let estimateRows = Object.keys(this.state.estimates).map((key) => {
+    let estimateRows = Object.keys(this.state.estimates).sort().map((key) => {
       return this.estimateRow(estimateComplete, key, this.state.estimates[key])
     })
 
@@ -60,7 +78,7 @@ let CoderEstimates = React.createClass({
 
       rtn = <CoderEstimatePending key={coder}
                                   coder={coder}
-                                  pointOptions={this.props.pointOptions}
+                                  pointOptions={this.state.pointOptions}
                                   onEstimate={this.updateEstimate}
             />
 
