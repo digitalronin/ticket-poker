@@ -18,8 +18,8 @@ import "phoenix_html"
 // Local files can be imported directly using relative
 // paths "./socket" or full ones "web/static/js/socket".
 
-import socket from "./socket"
-import React from "react"
+import socket   from "./socket"
+import React    from "react"
 import ReactDOM from "react-dom"
 
 import CoderEstimates from "./components/coder_estimates"
@@ -31,16 +31,14 @@ export var App = {
 
       let reactTarget = document.getElementById("estimates-react-target")
 
-      console.log('socket.connect');
       socket.connect()
       let channel = socket.channel(`ticket:${window.ticketId}`)
       channel.join()
-        .receive("ok", resp => { console.log("Joined successfully", resp) })
-        .receive("error", resp => { console.log("Unable to join", resp) })
-      channel.push("ping", {data: "whatever"})
+        .receive("ok",    resp => { /* console.log("Joined successfully", resp) */ })
+        .receive("error", resp => { console.log("Unable to join", resp)      })
 
       // window.ticketId is set by a script tag in the ticket/show template
-      ReactDOM.render(<CoderEstimates ticketId={window.ticketId} />, reactTarget)
+      ReactDOM.render(<CoderEstimates channel={channel} ticketId={window.ticketId} />, reactTarget)
     }
 
     let clipboard = new Clipboard(".js-clipboard-trigger")

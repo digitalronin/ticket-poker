@@ -4,6 +4,7 @@ defmodule PlanningPoker.TicketControllerTest do
   alias PlanningPoker.{TeamUpdater}
 
   @url "http://foo.bar.baz"
+  @non_existent_ticket_id "35bf6df4-69a5-4bd3-a9e5-dddd7d55e3ea"
 
   @team_attrs %{
     "coders" => ["a", "b", "c"],
@@ -20,7 +21,7 @@ defmodule PlanningPoker.TicketControllerTest do
 
   test "renders page not found when id is nonexistent", %{conn: conn} do
     assert_error_sent 404, fn ->
-      get conn, ticket_path(conn, :show, "35bf6df4-69a5-4bd3-a9e5-dddd7d55e3ea")
+      get conn, ticket_path(conn, :show, @non_existent_ticket_id)
     end
   end
 

@@ -6,6 +6,7 @@ import CoderEstimatePending   from "./coder_estimate_pending"
 
 let CoderEstimates = React.createClass({
   propTypes: {
+    channel:   React.PropTypes.object,
     ticketId:  React.PropTypes.string
   },
 
@@ -19,6 +20,7 @@ let CoderEstimates = React.createClass({
 
   componentDidMount() {
     this.fetchServerData()
+    this.props.channel.on("update", this.fetchServerData)
   },
 
   render() {
@@ -112,7 +114,8 @@ let CoderEstimates = React.createClass({
       method: 'PUT',
       data: data,
       success: (response) => {
-        this.setState(this.convertJsonData(response.data))
+        this.props.channel.push('update', {})
+        // this.setState(this.convertJsonData(response.data))
       }
     })
   }

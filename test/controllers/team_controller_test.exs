@@ -6,6 +6,7 @@ defmodule PlanningPoker.TeamControllerTest do
   @find_attrs %{coders: [], name: "some content", points: []}
   @valid_attrs Map.put(@find_attrs, :points_string, "")
   @ticket_url "http://foo.bar.baz"
+  @non_existent_ticket_id "35bf6df4-69a5-4bd3-a9e5-dddd7d55e3ea"
   @invalid_attrs %{}
 
   test "renders form for new resources", %{conn: conn} do
@@ -40,7 +41,7 @@ defmodule PlanningPoker.TeamControllerTest do
 
   test "renders page not found when id is nonexistent", %{conn: conn} do
     assert_error_sent 404, fn ->
-      get conn, team_path(conn, :show, "35bf6df4-69a5-4bd3-a9e5-dddd7d55e3ea")
+      get conn, team_path(conn, :show, @non_existent_ticket_id)
     end
   end
 
