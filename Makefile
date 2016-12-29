@@ -1,6 +1,9 @@
 serve:
 	iex -S mix phoenix.server
 
+deploy:
+	git push heroku master
+
 build-assets:
 	node_modules/.bin/brunch build
 
