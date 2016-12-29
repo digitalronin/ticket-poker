@@ -1,12 +1,12 @@
-implement a JSON API and convert to SPA
-- estimating
-  - use the values from the server to initialise the react component
-  - use a JSON-API interface to handle the click
-- style the react component estimate cards to match the non-react versions
+- style the cards better
 
 default points to 1 2 3 5 8 13
 
 animate the clipboard icon, so user sees that copying has succeeded
+animate clicking the cards, to give better feedback
+animate transition - cards coming out, cards collapsing back
+
+switch to material design?
 
 styling
 - show completed choices in a single row
