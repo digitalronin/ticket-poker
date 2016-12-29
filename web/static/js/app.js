@@ -28,7 +28,16 @@ export var App = {
   run: function(){
 
     if (window.ticketId) {
+
       let reactTarget = document.getElementById("estimates-react-target")
+
+      console.log('socket.connect');
+      socket.connect()
+      let channel = socket.channel(`ticket:${window.ticketId}`)
+      channel.join()
+        .receive("ok", resp => { console.log("Joined successfully", resp) })
+        .receive("error", resp => { console.log("Unable to join", resp) })
+      channel.push("ping", {data: "whatever"})
 
       // window.ticketId is set by a script tag in the ticket/show template
       ReactDOM.render(<CoderEstimates ticketId={window.ticketId} />, reactTarget)

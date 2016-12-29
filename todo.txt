@@ -1,3 +1,8 @@
+use websockets so concurrent users see each others' changes
+- send a message when a coder chooses an estimate value
+- broadcast a message when a coder chooses an estimate value
+- use websockets for all client/server interactions
+
 - style the cards better
 
 default points to 1 2 3 5 8 13
@@ -22,8 +27,6 @@ add ticket handling
 show team url on team page
 show team url on ticket page? (otherwise, if ticket was created with the team, team URL is not shown)
 copy team URL to clipboard
-
-use websockets so concurrent users see each others' changes
 
 show ticket body in a separate (i)frame
 
