@@ -1,11 +1,9 @@
-bookmark: I can't get react working - I'm not sure why
-
-
 implement a JSON API and convert to SPA
 - estimating
   - bind a click event to the choice cards
   - use a JSON-API interface to handle the click
   - re-render the estimate as hidden/completed
+- style the react component estimate cards to match the non-react versions
 
 default points to 1 2 3 5 8 13
 
