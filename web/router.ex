@@ -24,8 +24,7 @@ defmodule PlanningPoker.Router do
     end
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", PlanningPoker do
-  #   pipe_through :api
-  # end
+  scope "/api", PlanningPoker, as: :api do
+    resources "/tickets", API.TicketController, only: [:show, :update]
+  end
 end
