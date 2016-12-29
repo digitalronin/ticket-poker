@@ -14,11 +14,17 @@ var CoderEstimates = React.createClass({
     pointOptions: React.PropTypes.array
   },
 
-  render() {
-    var estimateComplete = this.isEstimateComplete(this.props.estimates)
+  getInitialState() {
+    return {
+      estimates: this.props.estimates
+    }
+  },
 
-    var estimateRows = Object.keys(this.props.estimates).map((key) => {
-      return this.estimateRow(estimateComplete, key, this.props.estimates[key])
+  render() {
+    var estimateComplete = this.isEstimateComplete(this.state.estimates)
+
+    var estimateRows = Object.keys(this.state.estimates).map((key) => {
+      return this.estimateRow(estimateComplete, key, this.state.estimates[key])
     })
 
     return(
