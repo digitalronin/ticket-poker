@@ -38,7 +38,8 @@ let CoderEstimates = React.createClass({
   },
 
   isEstimateComplete(estimates) {
-    return Object.values(estimates).indexOf(0) === -1
+    let values = Object.keys(estimates).map((key) => { return estimates[key] })
+    return values.indexOf(0) === -1
   },
 
   estimateRow(estimateComplete, coder, points) {
