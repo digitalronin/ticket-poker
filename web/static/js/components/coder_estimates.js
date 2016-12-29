@@ -5,44 +5,45 @@ import CoderEstimateCompleted from "./coder_estimate_completed"
 import CoderEstimatePending from "./coder_estimate_pending"
 
 // TODO: pass in the state as estimates hash and pointOptions array
-// TODO: work out whether or not the estimate is complete
 // TODO: get the ticket data from the server
 // TODO: push new ticket data to the server
 
 var CoderEstimates = React.createClass({
   propTypes: {
-    estimateComplete: React.PropTypes.bool,
     estimates: React.PropTypes.object,
     pointOptions: React.PropTypes.array
   },
 
   render() {
-    console.log('CoderEstimates', this.props.estimates, this.props.pointOptions);
+    var estimateComplete = this.isEstimateComplete(this.props.estimates)
 
-    var alice   = this.estimateRow(false, "Alice", 3)
-    var bob     = this.estimateRow(true, "Bob", 7)
-    var charlie = this.estimateRow(false, "Charlie", 0)
+    var estimateRows = Object.keys(this.props.estimates).map((key) => {
+      return this.estimateRow(estimateComplete, key, this.props.estimates[key])
+    })
 
     return(
       <div className="estimates">
-        {alice}
-        {bob}
-        {charlie}
+        {estimateRows}
         <hr />
       </div>
     )
   },
 
+
+  isEstimateComplete(estimates) {
+    return Object.values(estimates).indexOf(0) === -1
+  },
+
+
   estimateRow(estimateComplete, coder, points) {
-    console.log('estimateCard', estimateComplete, coder, points);
     var rtn
 
     if (points === 0) {
-      rtn = <CoderEstimatePending coder={coder} pointOptions={this.props.pointOptions} />
+      rtn = <CoderEstimatePending key={coder} coder={coder} pointOptions={this.props.pointOptions} />
     } else {
       rtn = (estimateComplete)
-            ? <CoderEstimateCompleted coder={coder} points={points} />
-            : <CoderEstimateHidden coder={coder} />
+            ? <CoderEstimateCompleted key={coder} coder={coder} points={points} />
+            : <CoderEstimateHidden key={coder} coder={coder} />
     }
 
     return rtn

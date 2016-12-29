@@ -27,7 +27,22 @@ import CoderEstimates from "./components/coder_estimates"
 
 export var App = {
   run: function(){
-    ReactDOM.render(<CoderEstimates estimateComplete={true} />, document.getElementById("estimates-react-target"))
+
+    // TODO: get these from the server
+
+    var estimates = {
+      "Christian": 1,
+      "David": 0,
+      "Jesus": 0,
+      "Todd": 0
+    }
+
+    var pointOptions = [1, 2, 3, 4]
+
+    ReactDOM.render(
+      <CoderEstimates estimates={estimates} pointOptions={pointOptions} />,
+      document.getElementById("estimates-react-target")
+    )
 
     var clipboard = new Clipboard(".js-clipboard-trigger")
     clipboard.on('success', function(e) {
