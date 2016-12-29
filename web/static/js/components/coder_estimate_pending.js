@@ -1,5 +1,9 @@
 import React from "react"
 
+import EstimateChoice from "./estimate_choice"
+
+// TODO: pass in coder and point options
+
 var CoderEstimatePending = React.createClass({
   render() {
     return(
@@ -8,12 +12,12 @@ var CoderEstimatePending = React.createClass({
           <span className="coder">Jesus</span>
         </div>
 
-        <div className="estimate-card estimate-choice"> <a href="/tickets/9bd7e27d-2e36-4f15-871b-2f3b4e198aef/estimate/Jesus/1">      1 </a>  </div>
-        <div className="estimate-card estimate-choice"> <a href="/tickets/9bd7e27d-2e36-4f15-871b-2f3b4e198aef/estimate/Jesus/2">      2 </a>  </div>
-        <div className="estimate-card estimate-choice"> <a href="/tickets/9bd7e27d-2e36-4f15-871b-2f3b4e198aef/estimate/Jesus/3">      3 </a>  </div>
-        <div className="estimate-card estimate-choice"> <a href="/tickets/9bd7e27d-2e36-4f15-871b-2f3b4e198aef/estimate/Jesus/5">      5 </a>  </div>
-        <div className="estimate-card estimate-choice"> <a href="/tickets/9bd7e27d-2e36-4f15-871b-2f3b4e198aef/estimate/Jesus/8">      8 </a>  </div>
-        <div className="estimate-card estimate-choice"> <a href="/tickets/9bd7e27d-2e36-4f15-871b-2f3b4e198aef/estimate/Jesus/13">    13 </a>  </div>
+        <EstimateChoice coder="Jesus" value={1} />
+        <EstimateChoice coder="Jesus" value={2} />
+        <EstimateChoice coder="Jesus" value={3} />
+        <EstimateChoice coder="Jesus" value={5} />
+        <EstimateChoice coder="Jesus" value={8} />
+        <EstimateChoice coder="Jesus" value={13} />
       </div>
     )
   }
