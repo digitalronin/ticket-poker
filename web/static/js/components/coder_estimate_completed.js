@@ -1,20 +1,24 @@
 import React from "react"
 
 var CoderEstimateCompleted = React.createClass({
+  propTypes: {
+    coder: React.PropTypes.string,
+    points: React.PropTypes.number
+  },
+
   render() {
     return(
       <div className="estimate">
         <div className="estimate-card estimate-completed" onClick={this.handleClick}>
-          <span className="coder">Christian</span>: 2
+          <span className="coder">{this.props.coder}</span>: {this.props.points}
         </div>
       </div>
     )
   },
 
   handleClick() {
-    console.log('CoderEstimateCompleted change my estimate')
+    console.log(`${this.props.coder} says change my estimate`)
   }
-
 })
 
 module.exports = CoderEstimateCompleted
