@@ -1,6 +1,6 @@
 import React from "react"
 
-var EstimateChoice = React.createClass({
+let EstimateChoice = React.createClass({
   propTypes: {
     coder:    React.PropTypes.string,
     value:    React.PropTypes.number,

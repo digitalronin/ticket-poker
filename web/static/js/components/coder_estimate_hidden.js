@@ -1,6 +1,6 @@
 import React from "react"
 
-var CoderEstimateHidden = React.createClass({
+let CoderEstimateHidden = React.createClass({
   propTypes: {
     coder:    React.PropTypes.string,
     onClick:  React.PropTypes.func

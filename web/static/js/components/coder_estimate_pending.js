@@ -4,7 +4,7 @@ import EstimateChoice from "./estimate_choice"
 
 // TODO: pass in coder and point options
 
-var CoderEstimatePending = React.createClass({
+let CoderEstimatePending = React.createClass({
   propTypes: {
     coder:         React.PropTypes.string,
     pointOptions:  React.PropTypes.array,
@@ -12,7 +12,7 @@ var CoderEstimatePending = React.createClass({
   },
 
   render() {
-    var choices = this.props.pointOptions.map((p) => {
+    let choices = this.props.pointOptions.map((p) => {
       return <EstimateChoice coder={this.props.coder}
                              key={p}
                              value={p}

@@ -30,21 +30,21 @@ export var App = {
 
     // TODO: get these from the server
 
-    var estimates = {
+    let estimates = {
       "Christian": 1,
       "David": 0,
       "Jesus": 0,
       "Todd": 0
     }
 
-    var pointOptions = [1, 2, 3, 4]
+    let pointOptions = [1, 2, 3, 4]
 
     ReactDOM.render(
       <CoderEstimates estimates={estimates} pointOptions={pointOptions} />,
       document.getElementById("estimates-react-target")
     )
 
-    var clipboard = new Clipboard(".js-clipboard-trigger")
+    let clipboard = new Clipboard(".js-clipboard-trigger")
     clipboard.on('success', function(e) {
       // TODO: animate the clipboard icon
       // console.info('Action:', e.action);

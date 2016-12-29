@@ -4,7 +4,7 @@ import CoderEstimateHidden    from "./coder_estimate_hidden"
 import CoderEstimateCompleted from "./coder_estimate_completed"
 import CoderEstimatePending   from "./coder_estimate_pending"
 
-var CoderEstimates = React.createClass({
+let CoderEstimates = React.createClass({
   propTypes: {
     estimates:     React.PropTypes.object,
     pointOptions:  React.PropTypes.array
@@ -20,7 +20,7 @@ var CoderEstimates = React.createClass({
   render() {
     let estimateComplete = this.isEstimateComplete(this.state.estimates)
 
-    var estimateRows = Object.keys(this.state.estimates).map((key) => {
+    let estimateRows = Object.keys(this.state.estimates).map((key) => {
       return this.estimateRow(estimateComplete, key, this.state.estimates[key])
     })
 

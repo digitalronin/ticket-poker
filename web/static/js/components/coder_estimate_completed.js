@@ -1,6 +1,6 @@
 import React from "react"
 
-var CoderEstimateCompleted = React.createClass({
+let CoderEstimateCompleted = React.createClass({
   propTypes: {
     coder:    React.PropTypes.string,
     points:   React.PropTypes.number,
