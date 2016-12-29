@@ -1,6 +1,9 @@
 serve:
 	iex -S mix phoenix.server
 
+build-assets:
+	node_modules/.bin/brunch build
+
 console:
 	iex -S mix
 
