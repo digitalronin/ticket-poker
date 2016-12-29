@@ -10,7 +10,7 @@ defmodule PlanningPoker.TeamControllerTest do
 
   test "renders form for new resources", %{conn: conn} do
     conn = get conn, team_path(conn, :new)
-    assert html_response(conn, 200) =~ "New team"
+    assert html_response(conn, 200) =~ "Setup your team"
   end
 
   test "creates resource and redirects when data is valid", %{conn: conn} do
@@ -29,13 +29,13 @@ defmodule PlanningPoker.TeamControllerTest do
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
     conn = post conn, team_path(conn, :create), team: @invalid_attrs
-    assert html_response(conn, 200) =~ "New team"
+    assert html_response(conn, 200) =~ "Setup your team"
   end
 
   test "shows chosen resource", %{conn: conn} do
     team = Repo.insert! %Team{}
     conn = get conn, team_path(conn, :show, team)
-    assert html_response(conn, 200) =~ "Edit team"
+    assert html_response(conn, 200) =~ "Team url"
   end
 
   test "renders page not found when id is nonexistent", %{conn: conn} do
@@ -47,7 +47,7 @@ defmodule PlanningPoker.TeamControllerTest do
   test "renders form for editing chosen resource", %{conn: conn} do
     team = Repo.insert! %Team{}
     conn = get conn, team_path(conn, :show, team)
-    assert html_response(conn, 200) =~ "Edit team"
+    assert html_response(conn, 200) =~ "Team url"
   end
 
   test "redirects back to team/show, if no ticket created", %{conn: conn} do
@@ -68,7 +68,7 @@ defmodule PlanningPoker.TeamControllerTest do
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
     team = Repo.insert! %Team{}
     conn = put conn, team_path(conn, :update, team), team: @invalid_attrs
-    assert html_response(conn, 200) =~ "Edit team"
+    assert html_response(conn, 200) =~ "Team url"
   end
 
 end
