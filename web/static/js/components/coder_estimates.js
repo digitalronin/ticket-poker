@@ -37,6 +37,15 @@ var CoderEstimates = React.createClass({
 
   updateEstimate(coder, points) {
     console.log('updateEstimate', coder, points)
+    var clone = this.cloneEstimates()
+    clone[coder] = points
+    this.setState({ estimates: clone })
+  },
+
+  cloneEstimates() {
+    var clone = {}
+    Object.keys(this.state.estimates).map((key) => { clone[key] = this.state.estimates[key] })
+    return clone
   },
 
 
