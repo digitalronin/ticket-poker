@@ -1,6 +1,6 @@
 - use websockets for all client/server interactions
-  - send ticket data from server via websocket
   - then remove jquery, because we only use ajax from that library
+  - stop sending ticket id in the socket message from js - it's not needed (get it from topic)
 
 - style the cards better
   - switch to material design?

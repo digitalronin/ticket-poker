@@ -12,15 +12,20 @@ let CoderEstimates = React.createClass({
 
   getInitialState() {
     return {
-      url:           "",
       pointOptions:  [],
       estimates:     {}
     }
   },
 
   componentDidMount() {
-    this.fetchServerData()
-    this.props.channel.on("update", this.fetchServerData)
+    this.props.channel.on("update", (payload) => {
+      this.setState({
+        estimates:     payload.estimates,
+        pointOptions:  payload.point_options
+      })
+    })
+
+    this.props.channel.push('get_ticket', { ticket_id: this.props.ticketId })
   },
 
   render() {
@@ -81,56 +86,18 @@ let CoderEstimates = React.createClass({
 
 
   updateEstimate(coder, points) {
-    var estimates = this.cloneEstimates(this.state.estimates)
-    estimates[coder] = points
-
-    var data = {
-      ticket: {
-        estimates: estimates
-      }
-    }
-
-    this.sendUpdateToServer(coder, points)
-  },
-
-  convertJsonData(data) {
-    return {
-      url: data.url,
-      pointOptions: data.point_options.map((i) => { return parseInt(i) }),
-      estimates: this.cloneEstimates(data.estimates)
-    }
-  },
-
-  cloneEstimates(estimates) {
-    var clone = {}
-    Object.keys(estimates).map((key) => {
-      clone[key] = parseInt(estimates[key])
-    })
-    return clone
-  },
-
-  dataUrl() {
-    return `/api/tickets/${this.props.ticketId}`
-  },
-
-  fetchServerData() {
-    $.ajax({
-      url: this.dataUrl(),
-      dataType: 'json',
-      success: (response) => {
-        this.setState(this.convertJsonData(response.data))
-      }
-    })
-  },
-
-  sendUpdateToServer(coder, points) {
-    let message = {
+    this.props.channel.push('update', {
       ticket_id:  this.props.ticketId,
       coder:      coder,
       points:     points
-    }
+    })
+  },
 
-    this.props.channel.push('update', message)
+  updateStateFromServerData(payload) {
+    this.setState({
+      estimates:     payload.estimates,
+      pointOptions:  payload.point_options
+    })
   }
 
 })

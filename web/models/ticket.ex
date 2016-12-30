@@ -22,4 +22,15 @@ defmodule TicketPoker.Ticket do
     |> cast(params, [:url, :point_options, :estimates])
     |> validate_required([:url, :point_options, :estimates])
   end
+
+  # convert a ticket to a map, suitable for pushing down
+  # a socket connection. currently, only point_options
+  # and estimates are used in the react component, so
+  # that's all we send
+  def to_map(ticket) do
+    %{
+      point_options:  ticket.point_options,
+      estimates:      ticket.estimates
+    }
+  end
 end
