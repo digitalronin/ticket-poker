@@ -7,7 +7,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Ticket Poker</title>
+    <title>
+      <%= assigns[:title] || "Ticket Poker" %>
+    </title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 

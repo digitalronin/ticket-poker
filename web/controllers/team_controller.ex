@@ -31,7 +31,7 @@ defmodule PlanningPoker.TeamController do
     team = find_team(id)
     changeset = Team.changeset(team)
 
-    render(conn, "show.html", team: team, changeset: changeset)
+    render(conn, "show.html", title: team.name, team: team, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "team" => team_params}) do

@@ -5,6 +5,6 @@ defmodule PlanningPoker.TicketController do
 
   def show(conn, %{"id" => id}) do
     ticket = Repo.get!(Ticket, id)
-    render(conn, "show.html", ticket: ticket)
+    render(conn, "show.html", title: "Ticket", ticket: ticket)
   end
 end
