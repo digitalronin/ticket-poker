@@ -1,6 +1,6 @@
 defmodule PlanningPoker.TicketUpdaterTest do
   use PlanningPoker.ModelCase
-  alias PlanningPoker.{TeamUpdater, TicketUpdater, Ticket}
+  alias PlanningPoker.{TeamUpdater, TicketUpdater}
 
   @team_attrs %{
     "coders"        => ["a", "b", "c"],
@@ -19,25 +19,6 @@ defmodule PlanningPoker.TicketUpdaterTest do
     },
     url: @url
   }
-
-  test "ticket is estimated if all points are non-zero" do
-    attrs = @ticket_attrs
-            |> Map.put(:estimates, %{"a" => 1, "b" => 3, "c" => 2})
-    ticket = struct(Ticket, attrs)
-    assert TicketUpdater.estimation_complete?(ticket)
-  end
-
-  test "ticket is not estimated if some points are zero" do
-    attrs = @ticket_attrs
-            |> Map.put(:estimates, %{"a" => 1, "b" => 0, "c" => 2})
-    ticket = struct(Ticket, attrs)
-    refute TicketUpdater.estimation_complete?(ticket)
-  end
-
-  test "ticket is not estimated if all points are zero" do
-    ticket = struct(Ticket, @ticket_attrs)
-    refute TicketUpdater.estimation_complete?(ticket)
-  end
 
   test "no ticket without new_ticket_url" do
     {:ok, team, _} = TeamUpdater.create(@team_attrs)

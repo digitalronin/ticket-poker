@@ -30,9 +30,24 @@ let CoderEstimates = React.createClass({
       return this.estimateRow(estimateComplete, key, this.state.estimates[key])
     })
 
+    let heading = (estimateComplete)
+                  ? <div><h2>Estimation complete</h2></div>
+                  : <div>
+                      <h2>Estimation pending</h2>
+                      <p>
+                        Estimates are hidden until all team members have estimated
+                      </p>
+                    </div>
+
     return(
-      <div className="estimates">
-        {estimateRows}
+      <div>
+        {heading}
+        <p>
+          Click the cards to choose/change <b>your</b> estimate
+        </p>
+        <div className="estimates">
+          {estimateRows}
+        </div>
       </div>
     )
   },

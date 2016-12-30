@@ -1,10 +1,6 @@
 defmodule PlanningPoker.TicketUpdater do
   alias PlanningPoker.{Repo, Ticket}
 
-  def estimation_complete?(ticket) do
-    !has_zeroes?(ticket.estimates)
-  end
-
   def create(team, %{ "new_ticket_url" => "" }), do: {:ok, team, nil}
 
   def create(team, %{ "new_ticket_url" => url }) do
@@ -42,13 +38,6 @@ defmodule PlanningPoker.TicketUpdater do
     coders
     |> Enum.zip(Stream.cycle([0]))
     |> Enum.into(%{})
-  end
-
-  defp has_zeroes?(points_map) do
-    points_map
-    |> Map.to_list
-    |> Enum.map(fn(t) -> String.to_integer(elem(t, 1)) end)
-    |> Enum.member?(0)
   end
 
 end
