@@ -7,16 +7,21 @@ defmodule TicketPoker.TicketChannel do
   end
 
   def handle_in("get_ticket", %{ "ticket_id" => ticket_id }, socket) do
-    ticket = Repo.get(Ticket, ticket_id)
-    push socket, "update", Ticket.to_map(ticket)
+    message = Repo.get(Ticket, ticket_id)
+              |> Ticket.to_map
+
+    push(socket, "update", message)
+
     {:noreply, socket}
   end
 
   # When we receive an update message, apply the update to the
   # ticket, and broadcast the new ticket state
-  def handle_in("update", payload = %{ "ticket_id" => ticket_id, "coder" => coder, "points" => points }, socket) do
+  def handle_in("update",  %{ "ticket_id" => ticket_id, "coder" => coder, "points" => points }, socket) do
     {:ok, ticket} = TicketUpdater.update_estimate(%{ id: ticket_id, coder: coder, points: points })
-    broadcast socket, "update", Ticket.to_map(ticket)
+
+    broadcast(socket, "update", Ticket.to_map(ticket))
+
     {:noreply, socket}
   end
 
