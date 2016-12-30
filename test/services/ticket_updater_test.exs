@@ -51,7 +51,7 @@ defmodule TicketPoker.TicketUpdaterTest do
     {:ok, team, _} = TeamUpdater.create(@team_attrs)
     {:ok, _team, ticket} = TicketUpdater.create(team, %{ "new_ticket_url" => @url })
 
-    {:ok, ticket} = TicketUpdater.update_estimate(%{id: ticket.id, coder: "b", points: "5"})
+    {:ok, ticket} = TicketUpdater.update_estimate(%{id: ticket.id, coder: "b", points: 5})
 
     assert ticket.estimates == %{ "a" => 0, "b" => 5, "c" => 0 }
   end
