@@ -1,6 +1,7 @@
 - use websockets for all client/server interactions
-  - then remove jquery, because we only use ajax from that library
   - stop sending ticket id in the socket message from js - it's not needed (get it from topic)
+
+point ticket-poker.org to the heroku app
 
 - style the cards better
   - switch to material design?
