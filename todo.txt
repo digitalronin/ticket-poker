@@ -1,9 +1,13 @@
+ticket is showing estimation complete when it isn't, and it's not changing in response to events
+
 - style the cards better
   - switch to material design?
 
 add some explanatory text on the first page
 
 default points to 1 2 3 5 8 13
+
+add preset links for setting team points
 
 render ticket url as a clickable link only if it's a URL - if it's a title, just display the text
 

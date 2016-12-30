@@ -7,13 +7,14 @@
 
   <%= if @team == %PlanningPoker.Team{} do %>
     <blockquote>
-    Welcome to planning poker.
+    Welcome to ticket poker.
     Setup your team and start estimating tickets.
     </blockquote>
 
   <% else %>
     <div class="form-group">
       <%= label f, "Team URL", class: "control-label" %>
+      (bookmark this to return)
       <div class="well well-sm">
         <span id="team_url"><%= team_url(@conn, :show, @team) %></span>
         <%= img_tag "/images/clipboard.svg", class: "icon pull-right js-clipboard-trigger", "data-clipboard-target": "#team_url" %>
@@ -28,23 +29,23 @@
   </div>
 
   <div class="form-group">
-    <%= label f, :points, class: "control-label" %>
+    <%= label f, :ticket_sizes, class: "control-label" %>
     <%= text_input f, :points_string, class: "form-control" %>
-    The set of possible point values used by your team, e.g. 1 2 3 5 8 13
+    The set of possible ticket sizes used by your team, e.g. 1 2 3 5 8 13
     <%= error_tag f, :points %>
   </div>
 
   <div class="form-group">
     <%= label f, :members, class: "control-label" %>
     <textarea class="form-control" id="team_coders" name="team[coders]" rows="5"><%= coders_string(@team.coders) %></textarea>
-    List the members of your team who will supply estimates for tickets
+    List the members of your team who will supply estimates for tickets, one name per line
     <%= error_tag f, :coders %>
   </div>
 
   <div class="form-group">
     <%= label f, :new_ticket, class: "control-label" %>
     <%= text_input f, :new_ticket_url, class: "form-control" %>
-    Enter the title of a ticket to estimate, or paste its URL
+    Enter the title of a ticket to estimate, or paste its URL from your planning system (e.g. Trello/Pivotal)
     <%= error_tag f, :new_ticket_url %>
   </div>
 

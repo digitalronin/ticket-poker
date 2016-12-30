@@ -1,7 +1,7 @@
 <h2>Ticket</h2>
 
 <div class="form-group">
-  Share this URL with your team so they can estimate
+  Share this URL with your team to estimate this ticket
   <div class="well well-sm">
     <span id="ticket_url"><%= ticket_url(@conn, :show, @ticket) %></span>
     <%= img_tag "/images/clipboard.svg", class: "icon pull-right js-clipboard-trigger", "data-clipboard-target": "#ticket_url" %>
@@ -25,7 +25,7 @@
 <% end %>
 
 <p>
-  Click the cards to choose/change your estimate
+  Click the cards to choose/change <b>your</b> estimate
 </p>
 
 <div id="estimates-react-target"></div>
