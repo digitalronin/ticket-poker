@@ -1,4 +1,4 @@
-ticket is showing estimation complete when it isn't, and it's not changing in response to events
+move complete/not into the react component, so it updates correctly
 
 - style the cards better
   - switch to material design?

@@ -47,7 +47,7 @@ defmodule PlanningPoker.TicketUpdater do
   defp has_zeroes?(points_map) do
     points_map
     |> Map.to_list
-    |> Enum.map(fn(t) -> elem(t, 1) end)
+    |> Enum.map(fn(t) -> String.to_integer(elem(t, 1)) end)
     |> Enum.member?(0)
   end
 
