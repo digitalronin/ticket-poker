@@ -90,7 +90,7 @@ let CoderEstimates = React.createClass({
       }
     }
 
-    this.pushDataToServer(data)
+    this.sendUpdateToServer(coder, points)
   },
 
   convertJsonData(data) {
@@ -123,17 +123,14 @@ let CoderEstimates = React.createClass({
     })
   },
 
-  pushDataToServer(data) {
-    $.ajax({
-      url: this.dataUrl(),
-      dataType: 'json',
-      method: 'PUT',
-      data: data,
-      success: (response) => {
-        this.props.channel.push('update', {})
-        // this.setState(this.convertJsonData(response.data))
-      }
-    })
+  sendUpdateToServer(coder, points) {
+    let message = {
+      ticket_id:  this.props.ticketId,
+      coder:      coder,
+      points:     points
+    }
+
+    this.props.channel.push('update', message)
   }
 
 })

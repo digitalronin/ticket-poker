@@ -14,7 +14,7 @@ defmodule TicketPoker.TicketUpdater do
 
   def update_estimate(%{ id: ticket_id, coder: coder, points: points}) do
     Repo.get(Ticket, ticket_id)
-    |> update_estimate(coder, String.to_integer(points))
+    |> update_estimate(coder, points)
   end
 
   def update_estimate(ticket, coder, points) do

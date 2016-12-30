@@ -1,4 +1,6 @@
-use a lighter ajax library - jquery seems like overkill
+- use websockets for all client/server interactions
+  - send ticket data from server via websocket
+  - then remove jquery, because we only use ajax from that library
 
 - style the cards better
   - switch to material design?
@@ -31,4 +33,3 @@ auto-delete stuff after X days
 
 deploy to heroku - continuous deployment
 
-- use websockets for all client/server interactions
