@@ -1,12 +1,10 @@
-default points to 1 2 3 5 8 13
+add some explanatory text on the first page
 
 - style the cards better
   - switch to material design?
   - use custom styling - remove bootstrap
 
 point ticket-poker.org to the heroku app
-
-add some explanatory text on the first page
 
 add preset links for setting team points
 

@@ -6,11 +6,7 @@
   <% end %>
 
   <%= if @team == %TicketPoker.Team{} do %>
-    <blockquote>
-    Welcome to ticket poker.
-    Setup your team and start estimating tickets.
-    </blockquote>
-
+    <%= render "welcome.html" %>
   <% else %>
     <div class="form-group">
       <%= label f, "Team URL", class: "control-label" %>
