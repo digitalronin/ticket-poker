@@ -1,5 +1,8 @@
+use a lighter ajax library - jquery seems like overkill
+
 - style the cards better
   - switch to material design?
+  - use custom styling - remove bootstrap
 
 add some explanatory text on the first page
 
