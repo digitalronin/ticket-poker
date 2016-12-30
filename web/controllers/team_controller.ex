@@ -3,8 +3,10 @@ defmodule TicketPoker.TeamController do
 
   alias TicketPoker.{ Team, TeamUpdater }
 
+  @default_points [1, 2, 3, 5, 8, 13]
+
   def new(conn, _params) do
-    changeset = Team.changeset(%Team{})
+    changeset = Team.changeset(%Team{ points: @default_points })
     render(conn, "new.html", changeset: changeset, team: %Team{})
   end
 

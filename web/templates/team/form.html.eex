@@ -31,7 +31,7 @@
   <div class="form-group">
     <%= label f, :ticket_sizes, class: "control-label" %>
     <%= text_input f, :points_string, class: "form-control" %>
-    The set of possible ticket sizes used by your team, e.g. 1 2 3 5 8 13
+    The set of possible ticket sizes used by your team
     <%= error_tag f, :points %>
   </div>
 
