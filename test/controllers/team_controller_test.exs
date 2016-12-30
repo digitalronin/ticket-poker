@@ -1,7 +1,7 @@
-defmodule PlanningPoker.TeamControllerTest do
-  use PlanningPoker.ConnCase
+defmodule TicketPoker.TeamControllerTest do
+  use TicketPoker.ConnCase
 
-  alias PlanningPoker.{Team, Ticket}
+  alias TicketPoker.{Team, Ticket}
 
   @find_attrs %{coders: [], name: "some content", points: []}
   @valid_attrs Map.put(@find_attrs, :points_string, "")

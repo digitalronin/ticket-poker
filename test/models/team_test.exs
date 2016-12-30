@@ -1,7 +1,7 @@
-defmodule PlanningPoker.TeamTest do
-  use PlanningPoker.ModelCase
+defmodule TicketPoker.TeamTest do
+  use TicketPoker.ModelCase
 
-  alias PlanningPoker.Team
+  alias TicketPoker.Team
 
   @valid_attrs %{coders: [], name: "some content", points: []}
   @invalid_attrs %{}

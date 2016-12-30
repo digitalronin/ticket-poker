@@ -1,4 +1,4 @@
 ExUnit.start
 
-Ecto.Adapters.SQL.Sandbox.mode(PlanningPoker.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(TicketPoker.Repo, :manual)
 

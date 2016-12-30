@@ -5,7 +5,7 @@
     </div>
   <% end %>
 
-  <%= if @team == %PlanningPoker.Team{} do %>
+  <%= if @team == %TicketPoker.Team{} do %>
     <blockquote>
     Welcome to ticket poker.
     Setup your team and start estimating tickets.

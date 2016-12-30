@@ -1,11 +1,11 @@
-defmodule PlanningPoker.UserSocket do
+defmodule TicketPoker.UserSocket do
   use Phoenix.Socket
 
   require Logger
 
   ## Channels
-  # channel "room:*", PlanningPoker.RoomChannel
-  channel "ticket:*", PlanningPoker.TicketChannel
+  # channel "room:*", TicketPoker.RoomChannel
+  channel "ticket:*", TicketPoker.TicketChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
@@ -34,7 +34,7 @@ defmodule PlanningPoker.UserSocket do
   # Would allow you to broadcast a "disconnect" event and terminate
   # all active sockets and channels for a given user:
   #
-  #     PlanningPoker.Endpoint.broadcast("users_socket:#{user.id}", "disconnect", %{})
+  #     TicketPoker.Endpoint.broadcast("users_socket:#{user.id}", "disconnect", %{})
   #
   # Returning `nil` makes this socket anonymous.
   def id(_socket), do: nil

@@ -1,7 +1,7 @@
-defmodule PlanningPoker.TicketTest do
-  use PlanningPoker.ModelCase
+defmodule TicketPoker.TicketTest do
+  use TicketPoker.ModelCase
 
-  alias PlanningPoker.Ticket
+  alias TicketPoker.Ticket
 
   @valid_attrs %{estimates: %{}, point_options: [], url: "some content"}
   @invalid_attrs %{}

@@ -1,7 +1,7 @@
-defmodule PlanningPoker.TicketControllerTest do
-  use PlanningPoker.ConnCase
+defmodule TicketPoker.TicketControllerTest do
+  use TicketPoker.ConnCase
 
-  alias PlanningPoker.{TeamUpdater}
+  alias TicketPoker.{TeamUpdater}
 
   @url "http://foo.bar.baz"
   @non_existent_ticket_id "35bf6df4-69a5-4bd3-a9e5-dddd7d55e3ea"

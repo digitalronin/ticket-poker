@@ -1,5 +1,5 @@
-defmodule PlanningPoker.Router do
-  use PlanningPoker.Web, :router
+defmodule TicketPoker.Router do
+  use TicketPoker.Web, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,7 +13,7 @@ defmodule PlanningPoker.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", PlanningPoker do
+  scope "/", TicketPoker do
     pipe_through :browser # Use the default browser stack
 
     get "/", TeamController, :new
@@ -24,7 +24,7 @@ defmodule PlanningPoker.Router do
     end
   end
 
-  scope "/api", PlanningPoker, as: :api do
+  scope "/api", TicketPoker, as: :api do
     resources "/tickets", API.TicketController, only: [:show, :update]
   end
 end

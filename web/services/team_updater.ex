@@ -1,5 +1,5 @@
-defmodule PlanningPoker.TeamUpdater do
-  alias PlanningPoker.{
+defmodule TicketPoker.TeamUpdater do
+  alias TicketPoker.{
     TicketUpdater,
     Team,
     Repo

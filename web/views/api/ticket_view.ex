@@ -1,8 +1,8 @@
-defmodule PlanningPoker.API.TicketView do
-  use PlanningPoker.Web, :view
+defmodule TicketPoker.API.TicketView do
+  use TicketPoker.Web, :view
 
   def render("show.json", %{ticket: ticket}) do
-    %{data: render_one(ticket, PlanningPoker.API.TicketView, "ticket.json")}
+    %{data: render_one(ticket, TicketPoker.API.TicketView, "ticket.json")}
   end
 
   def render("ticket.json", %{ticket: ticket}) do

@@ -1,7 +1,7 @@
-defmodule PlanningPoker.TicketChannelTest do
-  use PlanningPoker.ChannelCase
+defmodule TicketPoker.TicketChannelTest do
+  use TicketPoker.ChannelCase
 
-  alias PlanningPoker.TicketChannel
+  alias TicketPoker.TicketChannel
 
   @ticket_id "35bf6df4-69a5-4bd3-a9e5-dddd7d55e3ea"
 

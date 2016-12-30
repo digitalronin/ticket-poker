@@ -1,7 +1,7 @@
-defmodule PlanningPoker.API.TicketControllerTest do
-  use PlanningPoker.ConnCase
+defmodule TicketPoker.API.TicketControllerTest do
+  use TicketPoker.ConnCase
 
-  alias PlanningPoker.Ticket
+  alias TicketPoker.Ticket
 
   @valid_attrs %{
     url:            "some content",

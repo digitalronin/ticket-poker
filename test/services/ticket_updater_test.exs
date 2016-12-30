@@ -1,6 +1,6 @@
-defmodule PlanningPoker.TicketUpdaterTest do
-  use PlanningPoker.ModelCase
-  alias PlanningPoker.{TeamUpdater, TicketUpdater}
+defmodule TicketPoker.TicketUpdaterTest do
+  use TicketPoker.ModelCase
+  alias TicketPoker.{TeamUpdater, TicketUpdater}
 
   @team_attrs %{
     "coders"        => ["a", "b", "c"],

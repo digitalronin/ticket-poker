@@ -1,7 +1,7 @@
-defmodule PlanningPoker.API.TicketController do
-  use PlanningPoker.Web, :controller
+defmodule TicketPoker.API.TicketController do
+  use TicketPoker.Web, :controller
 
-  alias PlanningPoker.Ticket
+  alias TicketPoker.Ticket
 
   def show(conn, %{"id" => id}) do
     ticket = Repo.get!(Ticket, id)
@@ -18,7 +18,7 @@ defmodule PlanningPoker.API.TicketController do
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)
-        |> render(PlanningPoker.ChangesetView, "error.json", changeset: changeset)
+        |> render(TicketPoker.ChangesetView, "error.json", changeset: changeset)
     end
   end
 

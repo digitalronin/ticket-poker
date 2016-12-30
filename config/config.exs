@@ -6,15 +6,15 @@
 use Mix.Config
 
 # General application configuration
-config :planning_poker,
-  ecto_repos: [PlanningPoker.Repo]
+config :ticket_poker,
+  ecto_repos: [TicketPoker.Repo]
 
 # Configures the endpoint
-config :planning_poker, PlanningPoker.Endpoint,
+config :ticket_poker, TicketPoker.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "wCwhF8XK4wrlcAIkLo4UlSYki8DnTJ+x8BWx/mBUOr98OvecdnXZFVKEqOq7tmez",
-  render_errors: [view: PlanningPoker.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: PlanningPoker.PubSub,
+  render_errors: [view: TicketPoker.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: TicketPoker.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

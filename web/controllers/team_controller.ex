@@ -1,7 +1,7 @@
-defmodule PlanningPoker.TeamController do
-  use PlanningPoker.Web, :controller
+defmodule TicketPoker.TeamController do
+  use TicketPoker.Web, :controller
 
-  alias PlanningPoker.{ Team, TeamUpdater }
+  alias TicketPoker.{ Team, TeamUpdater }
 
   def new(conn, _params) do
     changeset = Team.changeset(%Team{})

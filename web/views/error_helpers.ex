@@ -1,4 +1,4 @@
-defmodule PlanningPoker.ErrorHelpers do
+defmodule TicketPoker.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -32,9 +32,9 @@ defmodule PlanningPoker.ErrorHelpers do
     #     dgettext "errors", "is invalid"
     #
     if count = opts[:count] do
-      Gettext.dngettext(PlanningPoker.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(TicketPoker.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(PlanningPoker.Gettext, "errors", msg, opts)
+      Gettext.dgettext(TicketPoker.Gettext, "errors", msg, opts)
     end
   end
 end

@@ -1,8 +1,8 @@
-defmodule PlanningPoker.Mixfile do
+defmodule TicketPoker.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :planning_poker,
+    [app: :ticket_poker,
      version: "0.0.1",
      elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
@@ -17,7 +17,7 @@ defmodule PlanningPoker.Mixfile do
   #
   # Type `mix help compile.app` for more information.
   def application do
-    [mod: {PlanningPoker, []},
+    [mod: {TicketPoker, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
                     :phoenix_ecto, :postgrex]]
   end

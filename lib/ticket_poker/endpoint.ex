@@ -1,14 +1,14 @@
-defmodule PlanningPoker.Endpoint do
-  use Phoenix.Endpoint, otp_app: :planning_poker
+defmodule TicketPoker.Endpoint do
+  use Phoenix.Endpoint, otp_app: :ticket_poker
 
-  socket "/socket", PlanningPoker.UserSocket
+  socket "/socket", TicketPoker.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :planning_poker, gzip: false,
+    at: "/", from: :ticket_poker, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -35,8 +35,8 @@ defmodule PlanningPoker.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
-    key: "_planning_poker_key",
+    key: "_ticket_poker_key",
     signing_salt: "YSZuK3/F"
 
-  plug PlanningPoker.Router
+  plug TicketPoker.Router
 end

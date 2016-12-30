@@ -1,4 +1,4 @@
-defmodule PlanningPoker.Repo.Migrations.CreateTeam do
+defmodule TicketPoker.Repo.Migrations.CreateTeam do
   use Ecto.Migration
 
   def change do

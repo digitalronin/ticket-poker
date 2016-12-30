@@ -1,5 +1,5 @@
-defmodule PlanningPoker.Team do
-  use PlanningPoker.Web, :model
+defmodule TicketPoker.Team do
+  use TicketPoker.Web, :model
 
   @primary_key {:id, :binary_id, autogenerate: true}
 
@@ -8,7 +8,7 @@ defmodule PlanningPoker.Team do
     field :points, {:array, :integer}
     field :points_string, :string, virtual: true
     field :coders, {:array, :string}
-    has_many :tickets, PlanningPoker.Ticket
+    has_many :tickets, TicketPoker.Ticket
 
     timestamps()
   end

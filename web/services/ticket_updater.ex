@@ -1,5 +1,5 @@
-defmodule PlanningPoker.TicketUpdater do
-  alias PlanningPoker.{Repo, Ticket}
+defmodule TicketPoker.TicketUpdater do
+  alias TicketPoker.{Repo, Ticket}
 
   def create(team, %{ "new_ticket_url" => "" }), do: {:ok, team, nil}
 

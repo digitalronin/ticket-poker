@@ -1,7 +1,7 @@
-defmodule PlanningPoker.TicketController do
-  use PlanningPoker.Web, :controller
+defmodule TicketPoker.TicketController do
+  use TicketPoker.Web, :controller
 
-  alias PlanningPoker.Ticket
+  alias TicketPoker.Ticket
 
   def show(conn, %{"id" => id}) do
     ticket = Repo.get!(Ticket, id)

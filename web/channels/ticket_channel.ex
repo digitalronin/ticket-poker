@@ -1,5 +1,5 @@
-defmodule PlanningPoker.TicketChannel do
-  use PlanningPoker.Web, :channel
+defmodule TicketPoker.TicketChannel do
+  use TicketPoker.Web, :channel
 
   def join("ticket:" <> _ticket_id, _payload, socket) do
     {:ok, socket}

@@ -1,4 +1,4 @@
-# PlanningPoker
+# TicketPoker
 
 To start your Phoenix app:
 
