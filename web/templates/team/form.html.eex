@@ -8,7 +8,6 @@
   <%= if @team == %TicketPoker.Team{} do %>
     <%= render "welcome.html" %>
   <% else %>
-
     <div class="row">
       <div class="card blue-grey col s12">
         <div class="card-content white-text">
@@ -18,7 +17,6 @@
         </div>
       </div>
     </div>
-
   <% end %>
 
   <div class="row">
