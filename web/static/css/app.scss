@@ -30,6 +30,7 @@ div.estimates {
     .coder {
       font-weight:   bold;
       padding-left:  5px;
+      min-width:     $card_width;
     }
 
     .estimate-card {
@@ -54,6 +55,14 @@ div.estimates {
         font-weight: bold;
         font-size:   240%;
       }
+    }
+
+    .estimate-value {
+        width:        100%;
+        text-align:   center;
+        font-weight:  bold;
+        font-size:    240%;
+        margin-top:   0;
     }
   }
 }

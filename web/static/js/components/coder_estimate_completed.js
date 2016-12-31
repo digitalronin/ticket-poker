@@ -11,7 +11,10 @@ let CoderEstimateCompleted = React.createClass({
     return(
       <div className="estimate">
         <div className="estimate-card estimate-completed" onClick={this.handleClick}>
-          <span className="coder">{this.props.coder}</span>: {this.props.points}
+          <div className="coder">{this.props.coder}</div>
+          <div className="estimate-value">
+            {this.props.points}
+          </div>
         </div>
       </div>
     )

@@ -10,7 +10,10 @@ let CoderEstimateHidden = React.createClass({
     return(
       <div className="estimate">
         <div className="estimate-card estimate-hidden" onClick={this.handleClick}>
-          <span className="coder">{this.props.coder}</span>: ?
+          <div className="coder">{this.props.coder}</div>
+          <div className="estimate-value blue-grey-text">
+           ?
+          </div>
         </div>
       </div>
     )

@@ -23,7 +23,7 @@ let CoderEstimatePending = React.createClass({
     return(
       <div className="estimate">
         <div className="estimate-card estimate-pending">
-          <span className="coder">{this.props.coder}</span>
+          <div className="coder">{this.props.coder}</div>
         </div>
         {choices}
       </div>
