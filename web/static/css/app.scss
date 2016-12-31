@@ -11,6 +11,16 @@ $card_border_color: #777;
   float: right;
 }
 
+// form validation errors are displayed
+// in a help-block span
+.help-block {
+  color: red;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
 div.estimates {
   margin-bottom:  $card_width / 5;
   width:          100%;

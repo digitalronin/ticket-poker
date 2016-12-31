@@ -1,10 +1,14 @@
-add some explanatory text on the first page
+bookmark: style the well in which URLs are displayed
 
 - style the cards better
   - switch to material design?
-  - use custom styling - remove bootstrap
+    - fix the textarea animation
+    - how should the html be structured, wrt. container/main?
+    - fix the well-sm components
+    - remove unused imports from materialize.scss
+    - use larger body text on the homepage?
 
-point ticket-poker.org to the heroku app
+add some explanatory text on the first page
 
 add preset links for setting team points
 
@@ -28,4 +32,6 @@ show list of open tickets, below team edit form?
 auto-delete stuff after X days
 
 deploy to heroku - continuous deployment
+
+point ticket-poker.org to the heroku app (done www.ticket-poker.org, but can't get ticket-poker.org to work)
 

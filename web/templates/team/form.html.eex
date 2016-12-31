@@ -1,6 +1,6 @@
 <%= form_for @changeset, @action, fn f -> %>
   <%= if @changeset.action do %>
-    <div class="alert alert-danger">
+    <div class="help-block">
       <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
@@ -8,44 +8,57 @@
   <%= if @team == %TicketPoker.Team{} do %>
     <%= render "welcome.html" %>
   <% else %>
-    <div class="form-group">
-      <%= label f, "Team URL", class: "control-label" %>
-      (bookmark this to return)
-      <div class="well well-sm">
-        <span id="team_url"><%= team_url(@conn, :show, @team) %></span>
-        <%= img_tag "/images/clipboard.svg", class: "icon pull-right js-clipboard-trigger", "data-clipboard-target": "#team_url" %>
+
+    <div class="row">
+      <div class="card blue-grey col s12">
+        <div class="card-content white-text">
+          <div class="card-title">Team URL (bookmark this to return)</div>
+          <span id="team_url"><%= team_url(@conn, :show, @team) %></span>
+          <i class="material-icons pull-right js-clipboard-trigger clickable" data-clipboard-target="#team_url">assignment</i>
+        </div>
       </div>
     </div>
+
   <% end %>
 
-  <div class="form-group">
-    <%= label f, "Team name", class: "control-label" %>
-    <%= text_input f, :name, class: "form-control" %>
-    <%= error_tag f, :name %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= label f, :team_name %>
+      <%= text_input f, :name, class: "form-control" %>
+      <%= error_tag f, :name %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= label f, :ticket_sizes, class: "control-label" %>
-    <%= text_input f, :points_string, class: "form-control" %>
-    The set of possible ticket sizes used by your team
-    <%= error_tag f, :points %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= label f, :ticket_sizes %>
+      <%= text_input f, :points_string, class: "form-control" %>
+      The set of possible ticket sizes used by your team
+      <%= error_tag f, :points %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= label f, :members, class: "control-label" %>
-    <textarea class="form-control" id="team_coders" name="team[coders]" rows="5"><%= coders_string(@team.coders) %></textarea>
-    List the members of your team who will supply estimates for tickets, one name per line
-    <%= error_tag f, :coders %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= label f, :members %>
+      <textarea class="materialize-textarea" id="team_coders" name="team[coders]"><%= coders_string(@team.coders) %></textarea>
+      List the members of your team who will supply estimates for tickets, one name per line
+      <%= error_tag f, :coders %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= label f, :new_ticket, class: "control-label" %>
-    <%= text_input f, :new_ticket_url, class: "form-control" %>
-    Enter the title of a ticket to estimate, or paste its URL from your planning system (e.g. Trello/Pivotal)
-    <%= error_tag f, :new_ticket_url %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= label f, :new_ticket %>
+      <%= text_input f, :new_ticket_url, class: "form-control" %>
+      Enter the title of a ticket to estimate, or paste its URL from your planning system (e.g. Trello/Pivotal)
+      <%= error_tag f, :new_ticket_url %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= submit "Submit", class: "btn btn-primary" %>
+    </div>
   </div>
 <% end %>
