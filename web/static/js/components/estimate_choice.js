@@ -9,8 +9,8 @@ let EstimateChoice = React.createClass({
 
   render() {
     return(
-      <div className="estimate-card estimate-choice" onClick={this.handleClick}>
-        {this.props.value}
+      <div className="estimate-card estimate-choice blue-grey valign-wrapper" onClick={this.handleClick}>
+        <p>{this.props.value}</p>
       </div>
     )
   },
