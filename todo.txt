@@ -1,7 +1,6 @@
 bookmark: style the well in which URLs are displayed
 
 - switch to material design?
-  - style the cards better
   - style the welcome banner
   - how should the html be structured, wrt. container/main?
   - remove unused imports from materialize.scss
