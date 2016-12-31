@@ -12,7 +12,7 @@ let CoderEstimateCompleted = React.createClass({
       <div className="estimate">
         <div className="estimate-card estimate-completed" onClick={this.handleClick}>
           <div className="coder">{this.props.coder}</div>
-          <div className="estimate-value">
+          <div className="estimate-value blue-grey-text">
             {this.props.points}
           </div>
         </div>
