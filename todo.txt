@@ -19,7 +19,7 @@ show list of open tickets, below team edit form?
 
 auto-delete stuff after X days
 
-deploy to heroku - continuous deployment
+setup continuous deployment
 
 point ticket-poker.org to the heroku app (done www.ticket-poker.org, but can't get ticket-poker.org to work)
 
