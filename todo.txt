@@ -1,8 +1,7 @@
-bookmark: add explanatory text to the collapsible on the welcome partial
+bookmark: add explanatory text in a collapsible on the welcome partial
 
 - switch to material design?
   - style the welcome banner
-  - how should the html be structured, wrt. container/main?
   - remove unused imports from materialize.scss
   - use larger body text on the homepage?
 
