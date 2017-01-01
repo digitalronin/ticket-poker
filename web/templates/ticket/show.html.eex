@@ -1,0 +1,22 @@
+<h2>
+  Ticket: <%= link String.slice(@ticket.url, 0, 20) <> "...", to: @ticket.url, class: "ticket-url", target: "_blank" %>
+</h2>
+
+<div class="row">
+  <div class="card blue-grey col s12">
+    <div class="card-content white-text">
+      <div class="card-title">Share this URL with your team to estimate this ticket</div>
+      <span id="ticket_url"><%= ticket_url(@conn, :show, @ticket) %></span>
+      <i class="material-icons pull-right js-clipboard-trigger clickable" data-clipboard-target="#ticket_url">assignment</i>
+    </div>
+  </div>
+</div>
+
+<div id="estimates-react-target"></div>
+
+<%= link to: team_path(@conn, :show, @ticket.team_id), class: "btn btn-primary waves-effect" do %>
+  <i class="material-icons left">arrow_back</i>
+  Back to team
+ <% end %>
+
+<script>window.ticketId = "<%= @ticket.id %>"</script>

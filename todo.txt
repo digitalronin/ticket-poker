@@ -1,0 +1,29 @@
+add preset links for setting team points
+
+render ticket url as a clickable link only if it's a URL - if it's a title, just display the text
+
+animate the clipboard icon, so user sees that copying has succeeded
+animate clicking the cards, to give better feedback (try waves effect, but it screws up vertical alignment)
+animate transition - cards coming out, cards collapsing back (check materializecss transitions)
+
+styling
+- show completed estimates in a single row
+- add funky graphics
+
+add ticket handling
+- validate ticket urls
+
+show ticket body in a separate (i)frame
+
+show list of open tickets, below team edit form?
+
+auto-delete stuff after X days
+
+setup continuous deployment
+
+point ticket-poker.org to the heroku app (done www.ticket-poker.org, but can't get ticket-poker.org to work)
+
+minify CSS
+
+uglify js
+

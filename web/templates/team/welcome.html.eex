@@ -1,0 +1,57 @@
+<ul class="collapsible" data-collapsible="accordion">
+  <li>
+    <div class="collapsible-header">
+      <i class="material-icons">place</i>
+      Welcome to ticket poker.
+      Please create your team and start estimating.
+    </div>
+    <div class="collapsible-body">
+      <ul>
+        <div class="container">
+          <h5>
+            What?
+          </h5>
+          <p>
+            An online tool to facilitate <a href="https://en.wikipedia.org/wiki/Planning_poker">planning poker</a> for development teams, especially remote or partially-remote teams.
+          </p>
+
+          <h5>
+           Why?
+          </h5>
+          <p>
+            I'm working in a distributed development team.
+            Also, I wanted to build something using
+            <a href="http://phoenixframework.org/">Elixir/Phoenix</a>,
+            <a href="https://facebook.github.io/react/">ReactJS</a>
+            and websockets.
+            This project also uses <a href="http://materializecss.com/">Materialize CSS</a>
+            and <a href="https://clipboardjs.com/">clipboard.js</a>
+          </p>
+          <h5>
+            How?
+          </h5>
+          <p> Just create your team and get started. There are no accounts or passwords. Don't forget to bookmark your team's URL.</p>
+          <p>When you create a ticket, share its URL with the members of your team and ask everyone to estimate its size.</p>
+
+          <h5>What prevents someone changing a different person's estimate?</h5>
+          <p>
+            <a href="http://www.wheatonslaw.com/">Wheaton's Law</a>
+            If your team is not complying with Wheaton's Law, this tool will not help you.
+          </p>
+          <h5>
+            Who?
+          </h5>
+          <p>
+            Me:
+            <a href="https://twitter.com/digitalronin">[Twitter]</a>
+            <a href="https://github.com/digitalronin">[Github]</a>
+            <a href="https://digitalronin.github.io/">[Blog]</a>
+          </p>
+          <p>
+            Feedback/suggestions very welcome.
+          </p>
+        </div>
+      </ul>
+    </div>
+  </li>
+</ul>
