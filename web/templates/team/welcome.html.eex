@@ -9,6 +9,7 @@
       <ul>
         <div class="container">
           <h5>
+            <br />
             What?
           </h5>
           <p>
@@ -47,8 +48,18 @@
             <a href="https://github.com/digitalronin">[Github]</a>
             <a href="https://digitalronin.github.io/">[Blog]</a>
           </p>
+<<<<<<< HEAD
           <p>
             Feedback/suggestions very welcome.
+=======
+          <h5>
+            Source
+          </h5>
+          <p>
+            The source code is on
+            <a href="https://github.com/digitalronin/ticket-poker">Github</a>.
+            Feedback/suggestions/pull requests are very welcome.
+>>>>>>> master
           </p>
         </div>
       </ul>

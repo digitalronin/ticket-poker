@@ -18,7 +18,7 @@ defmodule TicketPoker.Team do
 
   def pre_process_points(str) do
     str
-    |> String.replace(~r/[^0-9\s]/, "")
+    |> String.replace(~r/[^0-9\s]/, " ")
     |> String.replace(~r/\s+/, " ")
     |> String.trim
     |> String.split(" ")
