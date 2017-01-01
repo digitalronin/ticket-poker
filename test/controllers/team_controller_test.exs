@@ -36,7 +36,7 @@ defmodule TicketPoker.TeamControllerTest do
   test "shows chosen resource", %{conn: conn} do
     team = Repo.insert! %Team{}
     conn = get conn, team_path(conn, :show, team)
-    assert html_response(conn, 200) =~ "Team url"
+    assert html_response(conn, 200) =~ "Team URL"
   end
 
   test "renders page not found when id is nonexistent", %{conn: conn} do
@@ -48,7 +48,7 @@ defmodule TicketPoker.TeamControllerTest do
   test "renders form for editing chosen resource", %{conn: conn} do
     team = Repo.insert! %Team{}
     conn = get conn, team_path(conn, :show, team)
-    assert html_response(conn, 200) =~ "Team url"
+    assert html_response(conn, 200) =~ "Team URL"
   end
 
   test "redirects back to team/show, if no ticket created", %{conn: conn} do
@@ -69,7 +69,7 @@ defmodule TicketPoker.TeamControllerTest do
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
     team = Repo.insert! %Team{}
     conn = put conn, team_path(conn, :update, team), team: @invalid_attrs
-    assert html_response(conn, 200) =~ "Team url"
+    assert html_response(conn, 200) =~ "Oops, something went wrong"
   end
 
 end
