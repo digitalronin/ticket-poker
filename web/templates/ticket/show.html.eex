@@ -14,8 +14,9 @@
 
 <div id="estimates-react-target"></div>
 
-<blockquote>
-  <%= link "Back to team", to: team_path(@conn, :show, @ticket.team_id) %>
-</blockquote>
+<%= link to: team_path(@conn, :show, @ticket.team_id), class: "btn btn-primary waves-effect" do %>
+  <i class="material-icons left">arrow_back</i>
+  Back to team
+ <% end %>
 
 <script>window.ticketId = "<%= @ticket.id %>"</script>
