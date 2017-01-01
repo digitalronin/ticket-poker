@@ -20,7 +20,12 @@
           </h5>
           <p>
             I'm working in a distributed development team.
-            Also, I wanted to build something using Elixir/Phoenix, ReactJS and websockets.
+            Also, I wanted to build something using
+            <a href="http://phoenixframework.org/">Elixir/Phoenix</a>,
+            <a href="https://facebook.github.io/react/">ReactJS</a>
+            and websockets.
+            This project also uses <a href="http://materializecss.com/">Materialize CSS</a>
+            and <a href="https://clipboardjs.com/">clipboard.js</a>
           </p>
           <h5>
             How?
