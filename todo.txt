@@ -1,3 +1,5 @@
+fix icons on deployed version 'assignment' and 'arrow_back' are not showing correctly
+
 add preset links for setting team points
 
 render ticket url as a clickable link only if it's a URL - if it's a title, just display the text

@@ -17,6 +17,3 @@ db-recreate:
 
 db-connect:
 	pgcli -U postgres ticket_poker_dev
-
-push-github:
-	git push github github:master
