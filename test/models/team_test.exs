@@ -20,6 +20,8 @@ defmodule TicketPoker.TeamTest do
     assert Team.pre_process_points(nil) == []
     assert Team.pre_process_points("") == []
     assert Team.pre_process_points("1 2 3") == [1, 2, 3]
+    assert Team.pre_process_points("1,2, 3") == [1, 2, 3]
+    assert Team.pre_process_points("1x2;y3") == [1, 2, 3]
     assert Team.pre_process_points(" 1 2 3 ") == [1, 2, 3]
     assert Team.pre_process_points(" 1	2 x 3 ") == [1, 2, 3]
     assert Team.pre_process_points("2 1 3") == [1, 2, 3]
