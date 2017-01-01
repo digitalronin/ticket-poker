@@ -1,11 +1,3 @@
-bookmark: add explanatory text in a collapsible on the welcome partial
-
-- switch to material design?
-  - style the welcome banner
-  - use larger body text on the homepage?
-
-add some explanatory text on the first page
-
 add preset links for setting team points
 
 render ticket url as a clickable link only if it's a URL - if it's a title, just display the text
@@ -15,7 +7,7 @@ animate clicking the cards, to give better feedback (try waves effect, but it sc
 animate transition - cards coming out, cards collapsing back (check materializecss transitions)
 
 styling
-- show completed choices in a single row
+- show completed estimates in a single row
 - add funky graphics
 
 add ticket handling
@@ -30,4 +22,8 @@ auto-delete stuff after X days
 deploy to heroku - continuous deployment
 
 point ticket-poker.org to the heroku app (done www.ticket-poker.org, but can't get ticket-poker.org to work)
+
+minify CSS
+
+uglify js
 
