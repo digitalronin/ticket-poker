@@ -16,9 +16,7 @@
             An online tool to facilitate <a href="https://en.wikipedia.org/wiki/Planning_poker">planning poker</a> for development teams, especially remote or partially-remote teams.
           </p>
 
-          <h5>
-           Why?
-          </h5>
+          <h5>Why?</h5>
           <p>
             I'm working in a distributed development team.
             Also, I wanted to build something using
@@ -28,38 +26,36 @@
             This project also uses <a href="http://materializecss.com/">Materialize CSS</a>
             and <a href="https://clipboardjs.com/">clipboard.js</a>
           </p>
-          <h5>
-            How?
-          </h5>
-          <p> Just create your team and get started. There are no accounts or passwords. Don't forget to bookmark your team's URL.</p>
-          <p>When you create a ticket, share its URL with the members of your team and ask everyone to estimate its size.</p>
+
+          <h5>How?</h5>
+          <p>
+            Just create your team and get started. There are no accounts or passwords. Don't forget to bookmark your team's URL.
+            When you create a ticket, share its URL with the members of your team and ask everyone to estimate its size.
+          </p>
+          <p>
+            For more information, check out this
+            <a href="https://digitalronin.github.io/2017/01/02/ticket-poker.html">blog post</a>
+          </p>
 
           <h5>What prevents someone changing a different person's estimate?</h5>
           <p>
             <a href="http://www.wheatonslaw.com/">Wheaton's Law</a>
             If your team is not complying with Wheaton's Law, this tool will not help you.
           </p>
-          <h5>
-            Who?
-          </h5>
+
+          <h5>Who?</h5>
           <p>
             Me:
             <a href="https://twitter.com/digitalronin">[Twitter]</a>
             <a href="https://github.com/digitalronin">[Github]</a>
             <a href="https://digitalronin.github.io/">[Blog]</a>
           </p>
-<<<<<<< HEAD
-          <p>
-            Feedback/suggestions very welcome.
-=======
-          <h5>
-            Source
-          </h5>
+
+          <h5>Source</h5>
           <p>
             The source code is on
             <a href="https://github.com/digitalronin/ticket-poker">Github</a>.
             Feedback/suggestions/pull requests are very welcome.
->>>>>>> master
           </p>
         </div>
       </ul>
