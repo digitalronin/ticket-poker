@@ -17,6 +17,12 @@ $card_border_color: #777;
   cursor: pointer;
 }
 
+img.logo {
+  width: 55px;
+  float: left;
+  margin-right: 15px;
+}
+
 div.estimates {
   margin-bottom:  $card_width / 5;
   width:          100%;

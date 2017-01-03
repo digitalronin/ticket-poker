@@ -16,7 +16,10 @@
 
   <body>
     <div class="container">
-      <header class="header">
+      <header class="header valign-wrapper">
+        <%= link to: "/" do %>
+          <%= img_tag "/images/noun_20413_cc.png", class: "logo" %>
+        <% end %>
         <h1>Ticket Poker</h1>
       </header>
 
@@ -26,6 +29,8 @@
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
       </main>
+
+      <%= render "footer.html" %>
 
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
