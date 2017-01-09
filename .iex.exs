@@ -1,4 +1,4 @@
-alias PlanningPoker.{
+alias TicketPoker.{
   Team,
   Ticket,
   Repo
