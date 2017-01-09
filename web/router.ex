@@ -9,6 +9,10 @@ defmodule TicketPoker.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :api do
+    plug :accepts, ["json"]
+  end
+
   scope "/", TicketPoker do
     pipe_through :browser # Use the default browser stack
 
@@ -19,5 +23,10 @@ defmodule TicketPoker.Router do
     resources "/tickets", TicketController do
       get "/estimate/:coder/:points", EstimateController, :update
     end
+  end
+
+  scope "/api", TicketPoker, as: :api do
+    pipe_through :api
+    resources "/tickets", API.TicketController, only: [:create]
   end
 end

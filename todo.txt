@@ -1,4 +1,6 @@
-fix icons on deployed version 'assignment' and 'arrow_back' are not showing correctly
+add api blurb
+- add nav bar & about page
+- move welcome text to about page
 
 add preset links for setting team points
 
@@ -29,3 +31,4 @@ minify CSS
 
 uglify js
 
+use shorter values for team & ticket IDs (lookup table mapping uuids<->short strings)
