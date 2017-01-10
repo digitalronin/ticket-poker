@@ -4,4 +4,8 @@ defmodule TicketPoker.API.TicketView do
   def render("create.json", %{conn: conn, ticket: ticket}) do
     %{ "url" => ticket_url(conn, :show, ticket) }
   end
+
+  def render("error.json", %{}) do
+    %{ "error" => "invalid parameters" }
+  end
 end
