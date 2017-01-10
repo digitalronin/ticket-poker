@@ -1,11 +1,11 @@
 <footer class="page-footer blue-grey lighten-5 valign-wrapper">
   <div class="container">
-    <p>
+    <div class="row">
       &copy; <a href="https://digitalronin.github.io/about.html">David Salgado</a> 2017.
       &nbsp;
       Cards logo &copy; <a href="https://thenounproject.com/bnvk/">Brennan Novak.</a>
       &nbsp;
       Uses <a href="http://materializecss.com/">MaterializeCSS</a>
-    </p>
+    </div>
   </div>
 </footer>
