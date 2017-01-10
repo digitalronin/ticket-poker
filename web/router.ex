@@ -19,6 +19,8 @@ defmodule TicketPoker.Router do
     get "/",       TeamController,  :new
     get "/teams",  TeamController,  :new
 
+    get "/about", PageController, :about
+
     resources "/teams", TeamController, except: [:index]
     resources "/tickets", TicketController do
       get "/estimate/:coder/:points", EstimateController, :update

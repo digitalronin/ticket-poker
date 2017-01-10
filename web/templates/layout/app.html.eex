@@ -15,14 +15,20 @@
   </head>
 
   <body>
-    <div class="container">
-      <header class="header valign-wrapper">
-        <%= link to: "/" do %>
+    <nav>
+      <div class="nav-wrapper blue-grey">
+        <a href="/" class="brand-logo">
           <%= img_tag "/images/noun_20413_cc.png", class: "logo" %>
-        <% end %>
-        <h1>Ticket Poker</h1>
-      </header>
-
+          Ticket Poker
+        </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <a href="/about">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 

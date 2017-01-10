@@ -6,7 +6,7 @@
   <% end %>
 
   <%= if @team == %TicketPoker.Team{} do %>
-    <%= render "welcome.html" %>
+    <h3>New to Ticket Poker? Click <a href="/about">here</a> for information</h3>
   <% else %>
     <div class="row">
       <div class="card blue-grey col s12">
