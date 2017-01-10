@@ -18,7 +18,7 @@
     <nav>
       <div class="nav-wrapper blue-grey">
         <a href="/" class="brand-logo">
-          <%= img_tag "/images/noun_20413_cc.png", class: "logo" %>
+          <%= img_tag "/images/noun_20413_cc.svg", class: "logo" %>
           Ticket Poker
         </a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
