@@ -1,0 +1,63 @@
+<h3>Ticket Poker API</h3>
+
+<p class="flow-text">
+  You can use the API to create tickets programmatically.
+  Any tickets you create will inherit the current set of coders and point values from your team.
+</p>
+
+<p class="flow-text">
+To create a ticket, you call the API with the UUID of your team, and the URL of the ticket you want to estimate, as a JSON document
+</p>
+
+<p class="flow-text">
+The response will be a JSON document with a single "url" key, which will be the URL of the ticket estimation page.
+</p>
+
+<p class="flow-text">
+Share this with your team, as usual, to estimate the ticket.
+</p>
+
+<p class="flow-text">
+  Here is an example of a bash script to create a ticket;
+</p>
+
+<div class="card-panel grey lighten-4">
+<pre>
+    #!/bin/bash
+
+    TEAM_ID=[UUID of your team - get this from the team page URL]
+
+    TICKET_URL=$1  # Supply the ticket URL on the command-line
+
+    curl -s -H "Accept: application/json" \
+         -H "Content-Type: application/json" \
+         -X POST \
+         -d "{\"team_id\":\"${TEAM_ID}\",\"ticket_url\":\"${TICKET_URL}\"}" \
+         https://ticket-poker.herokuapp.com/api/tickets \
+         | sed 's/{"url":"\(.*\)"}/\1/'
+</pre>
+</div>
+
+<p class="flow-text">
+  (The <code>sed</code> part at the end is just a quick and dirty way to extract the URL from the JSON response)
+</p>
+
+<p class="flow-text">
+  Save this to a file called, for example, <code>create-ticket.sh</code> and make it executable (be careful that the quotes are not converted to smart quotes if you copy and paste).
+</p>
+
+<p class="flow-text">
+  Then, you can create a new ticket like this;
+</p>
+
+<div class="card-panel grey lighten-4">
+  <code>./create-ticket.sh http://your-ticket-url.goes.here</code>
+</div>
+
+<p class="flow-text">
+  If you use this to build any integrations with other planning tools, please let me know.
+</p>
+
+<p>
+  <a href="/">Back</a>
+</p>

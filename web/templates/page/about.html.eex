@@ -2,15 +2,17 @@
   Welcome to ticket poker.
 </p>
 
-<h3>What?</h3>
+<h4>What?</h4>
 <p class="flow-text">
   This is an online tool to facilitate <a href="https://en.wikipedia.org/wiki/Planning_poker">planning poker</a> for development teams, especially remote or partially-remote teams.
 </p>
 
-<h3>Why?</h3>
+<h4>Why?</h4>
 <p class="flow-text">
-  I'm working in a distributed development team.
-  Also, I wanted to build something using
+  I'm working in a distributed development team, and wanted a better way for us to estimate tickets.
+</p>
+<p class="flow-text">
+  Plus, I wanted to build something using
   <a href="http://phoenixframework.org/">Elixir/Phoenix</a>,
   <a href="https://facebook.github.io/react/">ReactJS</a>
   and websockets.
@@ -18,7 +20,7 @@
   and <a href="https://clipboardjs.com/">clipboard.js</a>
 </p>
 
-<h3>How?</h3>
+<h4>How?</h4>
 <p class="flow-text">
   Just create your team and get started. There are no accounts or passwords. Don't forget to bookmark your team's URL.
   When you create a ticket, share its URL with the members of your team and ask everyone to estimate its size.
@@ -28,14 +30,14 @@
   <a href="https://digitalronin.github.io/2017/01/02/ticket-poker.html">blog post</a>
 </p>
 
-<h4>What prevents someone changing a different person's estimate?</h4>
+<h5>What prevents someone changing a different person's estimate?</h5>
 <p class="flow-text">
   <a href="http://www.wheatonslaw.com/">Wheaton's Law</a>
   If your team is not complying with Wheaton's Law, this tool will not help you.
 </p>
 
 
-<h3>Who?</h3>
+<h4>Who?</h4>
 <p class="flow-text">
   Me:
   <a href="https://twitter.com/digitalronin">[Twitter]</a>
@@ -43,7 +45,7 @@
   <a href="https://digitalronin.github.io/">[Blog]</a>
 </p>
 
-<h3>Source</h3>
+<h4>Source</h4>
 <p class="flow-text">
   The source code is on
   <a href="https://github.com/digitalronin/ticket-poker">Github</a>.
