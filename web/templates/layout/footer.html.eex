@@ -5,7 +5,16 @@
       &nbsp;
       Cards logo &copy; <a href="https://thenounproject.com/bnvk/">Brennan Novak.</a>
       &nbsp;
-      Uses <a href="http://materializecss.com/">MaterializeCSS</a>
+
+      Uses:
+
+      <a href="http://materializecss.com/">MaterializeCSS</a>,
+      &nbsp;
+      <a href="https://clipboardjs.com/">clipboard.js</a>
+      &nbsp;
+      <a href="https://highlightjs.org/">highlight.js</a>
+      &nbsp;
+
     </div>
   </div>
 </footer>
