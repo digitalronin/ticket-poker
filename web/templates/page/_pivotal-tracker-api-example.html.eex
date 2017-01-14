@@ -1,0 +1,175 @@
+<div class="collapsible-header">Pivotal Tracker</div>
+
+<div class="collapsible-body">
+  <p class="flow-text">
+    The following script will add a "Ticket Poker [URL of Ticket Poker estimation page]"
+    task to all the stories in a Pivotal Tracker project which have a specific label, and which
+    have not yet been estimated.
+  </p>
+
+  <div class="container">
+    <div class="card-panel grey lighten-4">
+      <pre>
+#!/usr/bin/env ruby
+
+# Script to add ticket-poker tasks to all stories in a pivotal tracker
+# project which have a certain label, and which have not yet been
+# estimated
+
+require 'json'
+require 'uri'
+require 'net/http'
+
+PIVOTAL_PROJECT_ID   = '[insert your id here]'
+PIVOTAL_API_TOKEN    = '[insert your api token here]'
+TICKET_POKER_TEAM_ID = '[insert your team_id here]'
+LABEL                = 'development'
+
+def main
+  project = PivotalProject.new(
+    project_id:  PIVOTAL_PROJECT_ID,
+    api_token:   PIVOTAL_API_TOKEN
+  )
+
+  ticket_poker = TicketPoker.new(team_id: TICKET_POKER_TEAM_ID)
+
+  project.unestimated_stories(label: LABEL).each do |story|
+    story.add_estimation_task(ticket_poker) unless story.has_estimation_task?
+  end
+end
+
+########################################
+
+class PivotalProject
+  BASE_URL = 'https://www.pivotaltracker.com/services/v5/projects'
+
+  def initialize(api_token:, project_id:)
+    @api_token  = api_token
+    @project_id = project_id
+  end
+
+  def unestimated_stories(label:)
+    url = [stories_url, filter_string(label)].join('?')
+    get(url).map { |h| Story.new(h.merge('project' => self)) }
+  end
+
+  def tasks(story)
+    get(tasks_url(story.id)).map {|h| Task.new(h)}
+  end
+
+  def add_task(story, description)
+    post(tasks_url(story.id), description: description)
+  end
+
+  private
+
+  def stories_url
+    [ BASE_URL, @project_id, 'stories' ].join('/')
+  end
+
+  def tasks_url(story_id)
+    [ BASE_URL, @project_id, 'stories', story_id, 'tasks' ].join('/')
+  end
+
+  def filter_string(label)
+    str = URI.encode %[label:"#{label}" estimate:-1]
+    "filter=#{str}"
+  end
+
+  def get(url)
+    uri = URI(url)
+    https = Net::HTTP.new(uri.host, uri.port)
+    https.use_ssl = true
+    request = Net::HTTP::Get.new(uri.request_uri)
+    set_headers request
+
+    JSON.parse https.request(request).body
+  end
+
+  def post(url, data)
+    uri = URI(url)
+    https = Net::HTTP.new(uri.host, uri.port)
+    https.use_ssl = true
+    request = Net::HTTP::Post.new(uri.path)
+    set_headers request
+
+    request.body = data.to_json
+
+    JSON.parse https.request(request).body
+  end
+
+  def set_headers(request)
+    request['X-TrackerToken'] = @api_token
+    request['Accept']         = 'application/json'
+    request['Content-Type']   = 'application/json'
+  end
+end
+
+
+class Story
+  attr_reader :id, :url
+
+  def initialize(hash)
+    @project = hash.fetch('project')
+    @id      = hash.fetch('id')
+    @url     = hash.fetch('url')
+  end
+
+  def has_estimation_task?
+    tasks.map(&:description).grep(/ticket.poker/i).any?
+  end
+
+  def add_estimation_task(ticket_poker)
+    url = ticket_poker.create(self.url)
+    @project.add_task(self, "Ticket Poker #{url}")
+  end
+
+  def tasks
+    @project.tasks(self)
+  end
+end
+
+
+class Task
+  attr_reader :id, :description
+
+  def initialize(hash)
+    @id          = hash.fetch('id')
+    @description = hash.fetch('description')
+  end
+end
+
+
+class TicketPoker
+  attr_reader :team_id
+
+  URL = 'https://ticket-poker.herokuapp.com/api/tickets'
+
+  def initialize(team_id:)
+    @team_id = team_id
+  end
+
+  def create(url)
+    data = {team_id: team_id, ticket_url: url}
+
+    uri = URI(URL)
+    https = Net::HTTP.new(uri.host, uri.port)
+    https.use_ssl = true
+    request = Net::HTTP::Post.new(uri.path)
+    request['Accept']         = 'application/json'
+    request['Content-Type']   = 'application/json'
+
+    request.body = data.to_json
+
+    rtn = https.request(request)
+    JSON.parse(rtn.body).fetch('url')
+  end
+end
+
+main
+      </pre>
+    </div>
+  </div>
+
+  <p>&nbsp;</p>
+</div>

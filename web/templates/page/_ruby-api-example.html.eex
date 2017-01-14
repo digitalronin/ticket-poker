@@ -1,0 +1,76 @@
+<div class="collapsible-header">Ruby</div>
+
+<div class="collapsible-body">
+  <p class="flow-text">
+    Here is an example of a ruby script to create a ticket;
+  </p>
+
+  <div class="container">
+    <div class="card-panel grey lighten-4">
+      <pre>
+#!/usr/bin/env ruby
+
+# Script to create a new Ticket Poker item given the ID of a team
+# and the external URL (or title) of the ticket/story to estimate
+
+require 'json'
+require 'uri'
+require 'net/http'
+
+TICKET_POKER_TEAM_ID = '[insert your team_id here]'
+
+ticket_url = ARGV.shift
+
+def create_ticket(url)
+  puts TicketPoker.new(team_id: TICKET_POKER_TEAM_ID).create(url)
+end
+
+########################################
+
+class TicketPoker
+  attr_reader :team_id
+
+  URL = 'https://ticket-poker.herokuapp.com/api/tickets'
+
+  def initialize(team_id:)
+    @team_id = team_id
+  end
+
+  def create(url)
+    data = {team_id: team_id, ticket_url: url}
+
+    uri = URI(URL)
+    https = Net::HTTP.new(uri.host, uri.port)
+    https.use_ssl = true
+    request = Net::HTTP::Post.new(uri.path)
+    request['Accept']         = 'application/json'
+    request['Content-Type']   = 'application/json'
+
+    request.body = data.to_json
+
+    rtn = https.request(request)
+    JSON.parse(rtn.body).fetch('url')
+  end
+end
+
+create_ticket(ticket_url)
+      </pre>
+    </div>
+  </div>
+
+  <p class="flow-text">
+    Save this to and make it executable (be careful that the quotes are not converted to smart quotes if you copy and paste).
+  </p>
+
+  <p class="flow-text">
+    Then, you can create a new ticket like this;
+  </p>
+
+  <div class="container">
+    <div class="card-panel grey lighten-4">
+      <code>./create-ticket http://your-ticket-url.goes.here</code>
+    </div>
+  </div>
+
+  <p>&nbsp;</p>
+</div>
