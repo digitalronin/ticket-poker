@@ -16,7 +16,9 @@
   <a href="http://phoenixframework.org/">Elixir/Phoenix</a>,
   <a href="https://facebook.github.io/react/">ReactJS</a>
   and websockets.
-  This project also uses <a href="http://materializecss.com/">Materialize CSS</a>
+  This project also uses
+  <a href="http://materializecss.com/">Materialize CSS</a>,
+  <a href="https://highlightjs.org/">highlight.js</a>,
   and <a href="https://clipboardjs.com/">clipboard.js</a>
 </p>
 
