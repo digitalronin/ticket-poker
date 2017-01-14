@@ -8,8 +8,8 @@
   </p>
 
   <div class="container">
-    <div class="card-panel grey lighten-4">
-      <pre>
+    <pre>
+      <code class="lang-ruby">
 #!/usr/bin/env ruby
 
 # Script to add ticket-poker tasks to all stories in a pivotal tracker
@@ -167,8 +167,8 @@ class TicketPoker
 end
 
 main
-      </pre>
-    </div>
+      </code>
+    </pre>
   </div>
 
   <p>&nbsp;</p>

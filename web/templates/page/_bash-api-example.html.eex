@@ -6,8 +6,8 @@
   </p>
 
   <div class="container">
-    <div class="card-panel grey lighten-4">
-      <pre>
+    <pre>
+      <code class="lang-bash">
 #!/bin/bash
 
 # Script to create a new Ticket Poker item given the ID of a team
@@ -23,8 +23,8 @@ curl -s -H "Accept: application/json" \
      -d "{\"team_id\":\"${TEAM_ID}\",\"ticket_url\":\"${TICKET_URL}\"}" \
      https://ticket-poker.herokuapp.com/api/tickets \
      | sed 's/{"url":"\(.*\)"}/\1/'
-      </pre>
-    </div>
+      </code>
+    </pre>
   </div>
 
   <p class="flow-text">
@@ -40,9 +40,9 @@ curl -s -H "Accept: application/json" \
   </p>
 
   <div class="container">
-    <div class="card-panel grey lighten-4">
-      <code>./create-ticket.sh http://your-ticket-url.goes.here</code>
-    </div>
+    <pre>
+      <code class="lang-bash">./create-ticket.sh http://your-ticket-url.goes.here</code>
+    </pre>
   </div>
 
   <p>&nbsp;</p>

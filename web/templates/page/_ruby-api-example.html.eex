@@ -6,8 +6,8 @@
   </p>
 
   <div class="container">
-    <div class="card-panel grey lighten-4">
-      <pre>
+    <pre>
+      <code class="lang-ruby">
 #!/usr/bin/env ruby
 
 # Script to create a new Ticket Poker item given the ID of a team
@@ -54,8 +54,8 @@ class TicketPoker
 end
 
 create_ticket(ticket_url)
-      </pre>
-    </div>
+      </code>
+    </pre>
   </div>
 
   <p class="flow-text">
@@ -67,10 +67,11 @@ create_ticket(ticket_url)
   </p>
 
   <div class="container">
-    <div class="card-panel grey lighten-4">
-      <code>./create-ticket http://your-ticket-url.goes.here</code>
-    </div>
+    <pre>
+      <code class="lang-bash">./create-ticket http://your-ticket-url.goes.here</code>
+    </pre>
   </div>
 
   <p>&nbsp;</p>
+
 </div>
