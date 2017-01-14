@@ -2,9 +2,18 @@
 
 <div class="collapsible-body">
   <p class="flow-text">
-    The following script will add a "Ticket Poker [URL of Ticket Poker estimation page]"
+    The following script will add a
+  </p>
+  <div class="container">
+    <pre><code>Ticket Poker https://[URL of Ticket Poker estimation page]</code></pre>
+  </div>
+  <p class="flow-text">
     task to all the stories in a Pivotal Tracker project which have a specific label, and which
     have not yet been estimated.
+  </p>
+
+  <p class="flow-text">
+    For more information, see <a href="https://digitalronin.github.io/2017/01/14/scripting-pivotal-tracker.html">this blog post</a>.
   </p>
 
   <div class="container">
