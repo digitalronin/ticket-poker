@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Script to create a new Ticket Poker item given the ID of a team
+# and the external URL (or title) of the ticket/story to estimate
+
 TEAM_ID=[UUID from your team\'s URL]
 
 TICKET_URL=$1
