@@ -24,9 +24,14 @@
           <%= img_tag "/images/noun_20413_cc.svg", class: "logo" %>
           Ticket Poker
         </a>
+        <a href="#" data-activates="hamburger-menu" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li> <a href="/api">API</a> </li>
-          <li> <a href="/about">About</a> </li>
+          <li><a href="/api">API</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+        <ul class="side-nav" id="hamburger-menu">
+          <li><a href="/api">API</a></li>
+          <li><a href="/about">About</a></li>
         </ul>
       </div>
     </nav>

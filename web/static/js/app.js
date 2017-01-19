@@ -51,5 +51,6 @@ export var App = {
       // e.clearSelection();
     });
 
+    jQuery(".button-collapse").sideNav();
   }
 }
