@@ -4,7 +4,7 @@ import CoderEstimateHidden    from "./coder_estimate_hidden"
 import CoderEstimateCompleted from "./coder_estimate_completed"
 import CoderEstimatePending   from "./coder_estimate_pending"
 
-let CoderEstimates = React.createClass({
+let Ticket = React.createClass({
   propTypes: {
     channel:   React.PropTypes.object,
     ticketId:  React.PropTypes.string
@@ -106,4 +106,4 @@ let CoderEstimates = React.createClass({
 
 })
 
-module.exports = CoderEstimates
+module.exports = Ticket

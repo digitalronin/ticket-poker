@@ -22,7 +22,7 @@ import socket   from "./socket"
 import React    from "react"
 import ReactDOM from "react-dom"
 
-import CoderEstimates from "./components/coder_estimates"
+import Ticket from "./components/ticket"
 
 export var App = {
   run: function(){
@@ -38,7 +38,7 @@ export var App = {
         .receive("error", resp => { console.log("Unable to join", resp)      })
 
       // window.ticketId is set by a script tag in the ticket/show template
-      ReactDOM.render(<CoderEstimates channel={channel} ticketId={window.ticketId} />, reactTarget)
+      ReactDOM.render(<Ticket channel={channel} ticketId={window.ticketId} />, reactTarget)
     }
 
     let clipboard = new Clipboard(".js-clipboard-trigger")
