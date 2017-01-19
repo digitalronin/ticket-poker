@@ -31,6 +31,8 @@ let Ticket = React.createClass({
   render() {
     let estimateComplete = this.isEstimateComplete(this.state.estimates)
 
+    this.setBrowserTitle(this.estimatesRemaining(this.state.estimates))
+
     let estimateRows = Object.keys(this.state.estimates).sort().map((key) => {
       return this.estimateRow(estimateComplete, key, this.state.estimates[key])
     })
@@ -102,6 +104,11 @@ let Ticket = React.createClass({
       estimates:     payload.estimates,
       pointOptions:  payload.point_options
     })
+  },
+
+  setBrowserTitle(count) {
+    let prefix = (count === 0) ? '[done]' : `(${count})`
+    document.title = `${prefix} Ticket`
   }
 
 })
